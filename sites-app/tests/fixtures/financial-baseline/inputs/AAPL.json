@@ -3,7 +3,7 @@
   "ticker": "AAPL",
   "category": "large profitable technology",
   "captured_at": "2026-08-31T01:40:35.646Z",
-  "captured_from": "https://aplexanalysis.aplex-1.chatgpt.site/api/v1/companies/AAPL/analysis",
+  "captured_from": "https://example.com/api/v1/companies/AAPL/analysis",
   "assumptions": null,
   "sources": {
     "financials": {

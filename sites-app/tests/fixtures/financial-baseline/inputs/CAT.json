@@ -3,7 +3,7 @@
   "ticker": "CAT",
   "category": "capital-intensive industrial company",
   "captured_at": "2026-08-31T01:40:45.275Z",
-  "captured_from": "https://aplexanalysis.aplex-1.chatgpt.site/api/v1/companies/CAT/analysis",
+  "captured_from": "https://example.com/api/v1/companies/CAT/analysis",
   "assumptions": null,
   "sources": {
     "financials": {

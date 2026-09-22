@@ -35,7 +35,7 @@ The original standalone Python backend was removed after its routes, fallback da
 2. From `sites-app`, run `npm install`.
 3. Run `npm run dev` and open the local address it prints.
 
-The local application uses the same Vinext routes and Worker structure as production. The D1 binding is simulated locally from the declaration in `sites-app/.openai/hosting.json`.
+The local application uses the same Vinext routes and Worker structure as production. The D1 binding is simulated locally from a private `sites-app/.openai/hosting.json` when present, otherwise it uses the public fallback.
 
 The shared UI can be checked independently from `frontend` with `npm test`, `npm run typecheck`, and `npm run build`.
 

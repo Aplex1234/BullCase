@@ -7,7 +7,7 @@ const description =
   "Search SEC-reporting companies and explore revenue, earnings, margins, cash flow, balance sheets and valuation.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://aplexanalysis.aplex-1.chatgpt.site"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"),
   title,
   description,
   icons: {

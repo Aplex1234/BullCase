@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 
 import { buildAnalysis } from "../../../lib/server/analysis.ts";
 
-const productionOrigin = "https://aplexanalysis.aplex-1.chatgpt.site";
+const productionOrigin = "https://example.com";
 const fixtures = [
   { ticker: "AAPL", category: "large profitable technology" },
   { ticker: "JPM", category: "bank and financial company" },

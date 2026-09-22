@@ -3,7 +3,7 @@
   "ticker": "WMT",
   "category": "retailer and consumer company",
   "captured_at": "2026-08-31T01:40:37.244Z",
-  "captured_from": "https://aplexanalysis.aplex-1.chatgpt.site/api/v1/companies/WMT/analysis",
+  "captured_from": "https://example.com/api/v1/companies/WMT/analysis",
   "assumptions": null,
   "sources": {
     "financials": {

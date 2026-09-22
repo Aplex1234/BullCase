@@ -3,7 +3,7 @@
   "ticker": "JPM",
   "category": "bank and financial company",
   "captured_at": "2026-08-31T01:40:36.550Z",
-  "captured_from": "https://aplexanalysis.aplex-1.chatgpt.site/api/v1/companies/JPM/analysis",
+  "captured_from": "https://example.com/api/v1/companies/JPM/analysis",
   "assumptions": null,
   "sources": {
     "financials": {

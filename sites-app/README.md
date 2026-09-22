@@ -44,7 +44,7 @@ External provider transport is also separated from financial-domain parsing:
 
 Automatic transport retries remain disabled by default so an upstream outage cannot multiply SEC or market-data traffic. Existing stale caches and protected background refreshes provide the recovery path. When required source data is unavailable and no valid cache exists, the API returns an explicit error instead of bundled or modeled substitute company data.
 
-The Sites project and logical D1 binding are declared in `.openai/hosting.json`. Do not place runtime secrets in that file.
+For a private Sites deployment, copy `.openai/hosting.example.json` to the ignored `.openai/hosting.json`, then add your own project ID. Do not place runtime secrets in that file.
 
 ## Local development
 

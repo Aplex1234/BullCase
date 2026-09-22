@@ -3,7 +3,7 @@
   "ticker": "BRK-B",
   "category": "unusual share structure",
   "captured_at": "2026-08-31T01:41:28.696Z",
-  "captured_from": "https://aplexanalysis.aplex-1.chatgpt.site/api/v1/companies/BRK-B/analysis",
+  "captured_from": "https://example.com/api/v1/companies/BRK-B/analysis",
   "assumptions": null,
   "sources": {
     "financials": {

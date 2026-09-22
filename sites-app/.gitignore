@@ -42,3 +42,6 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+
+# Private Sites deployment identity
+.openai/hosting.json

@@ -3,7 +3,7 @@
   "ticker": "RIVN",
   "category": "loss-making company",
   "captured_at": "2026-08-31T01:41:07.224Z",
-  "captured_from": "https://aplexanalysis.aplex-1.chatgpt.site/api/v1/companies/RIVN/analysis",
+  "captured_from": "https://example.com/api/v1/companies/RIVN/analysis",
   "assumptions": null,
   "sources": {
     "financials": {
