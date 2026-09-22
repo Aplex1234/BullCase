@@ -1,0 +1,1 @@
+ALTER TABLE `cache_events` ADD `sample_weight` integer DEFAULT 1 NOT NULL;

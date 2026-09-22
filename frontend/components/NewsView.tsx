@@ -1,0 +1,155 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { Button } from "./AplexPrimitives";
+import Launch from "@carbon/icons-react/es/Launch.js";
+import Renew from "@carbon/icons-react/es/Renew.js";
+import Rss from "@carbon/icons-react/es/Rss.js";
+
+import type { Analysis, NewsItem } from "@/lib/types";
+import { CompanyLogo } from "./CompanyLogo";
+
+type NewsFilter = "all" | "direct" | "ticker" | "industry" | "filing";
+
+const FILTERS: Array<{ key: NewsFilter; label: string }> = [
+  { key: "all", label: "All" },
+  { key: "direct", label: "Company coverage" },
+  { key: "ticker", label: "Ticker mentions" },
+  { key: "industry", label: "Industry" },
+  { key: "filing", label: "SEC filings" },
+];
+
+function formatPublished(value: string) {
+  const timestamp = Date.parse(value);
+  if (!Number.isFinite(timestamp)) return "Date unavailable";
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: new Date(timestamp).getUTCFullYear() === new Date().getUTCFullYear() ? undefined : "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(timestamp);
+}
+
+function scopeLabel(scope: NewsItem["scope"]) {
+  if (scope === "filing") return "SEC filing";
+  return scope === "industry" ? "Industry" : "Company";
+}
+
+function relevanceOf(item: NewsItem): Exclude<NewsFilter, "all"> {
+  if (item.scope === "filing") return "filing";
+  if (item.scope === "industry") return "industry";
+  return item.relevance === "ticker" ? "ticker" : "direct";
+}
+
+function NewsRow({ item, ticker, lead = false }: { item: NewsItem; ticker: string; lead?: boolean }) {
+  const policy = item.source.startsWith("Federal Reserve (");
+  const relevance = relevanceOf(item);
+  const itemTicker = (item.matched_ticker ? ticker : item.tickers?.[0]) || ticker;
+  return (
+    <article className={lead ? "news-item news-lead" : "news-item"}>
+      {item.scope === "filing" || policy ? (
+        <div className="news-item-index" aria-hidden="true">{policy ? "POLICY" : "SEC"}</div>
+      ) : (
+        <CompanyLogo ticker={itemTicker} name={item.source} size="sm" className="news-item-logo" alt="" />
+      )}
+      <div className="news-item-body">
+        <div className="news-meta">
+          <span className={`news-scope news-scope-${relevance}`}>{policy ? "Policy context" : relevance === "ticker" ? "Ticker mention" : scopeLabel(item.scope)}</span>
+          <span>{item.source}</span>
+          <time dateTime={item.published_at}>{formatPublished(item.published_at)}</time>
+          {item.matched_ticker && <span className="news-ticker-match">{ticker}</span>}
+        </div>
+        <h3><a href={item.url} target="_blank" rel="noreferrer">{item.title}<Launch size={15} aria-label="Open original coverage" /></a></h3>
+        {item.summary && <p>{item.summary}</p>}
+        {item.tickers.length > 1 && (
+          <div className="news-related-tickers" aria-label="Related ticker symbols">
+            {item.tickers.slice(0, 5).map((symbol) => <span key={symbol}>{symbol}</span>)}
+          </div>
+        )}
+      </div>
+    </article>
+  );
+}
+
+export function NewsView({ analysis, onRetry }: { analysis: Analysis; onRetry: () => void }) {
+  const [filter, setFilter] = useState<NewsFilter>("all");
+  const items = useMemo(
+    () => filter === "all" ? analysis.news.items : analysis.news.items.filter((item) => relevanceOf(item) === filter),
+    [analysis.news.items, filter],
+  );
+  const directCount = analysis.news.items.filter((item) => relevanceOf(item) === "direct").length;
+  const tickerCount = analysis.news.items.filter((item) => relevanceOf(item) === "ticker").length;
+  const industryCount = analysis.news.items.filter((item) => item.scope === "industry").length;
+  const filingCount = analysis.news.items.filter((item) => item.scope === "filing").length;
+  const newsFreshness = analysis.freshness?.news;
+
+  return (
+    <div className="page-stack news-page">
+      <section className="news-section" aria-labelledby="news-heading">
+        <header className="news-header">
+          <div className="news-title-lockup">
+            <CompanyLogo ticker={analysis.company.ticker} name={analysis.company.name} size="md" />
+            <div>
+              <span className="news-kicker">COMPANY NEWS DESK</span>
+              <h2 id="news-heading">{analysis.company.name} news</h2>
+            </div>
+          </div>
+          <div className="news-coverage-summary" aria-label="News coverage summary">
+            <div><strong>{directCount}</strong><span>Direct stories</span></div>
+            <div><strong>{industryCount}</strong><span>Industry stories</span></div>
+            <div><strong>{analysis.news.providers.length}</strong><span>Sources</span></div>
+          </div>
+        </header>
+
+        <div className="news-filter" aria-label="Filter news coverage">
+          {FILTERS.map((option) => (
+            <button
+              type="button"
+              key={option.key}
+              className={filter === option.key ? "active" : ""}
+              aria-pressed={filter === option.key}
+              onClick={() => setFilter(option.key)}
+            >
+              {option.label}
+              <span>{option.key === "all" ? analysis.news.items.length : option.key === "direct" ? directCount : option.key === "ticker" ? tickerCount : option.key === "industry" ? industryCount : filingCount}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="news-layout">
+          <div className="news-list" aria-live="polite">
+            {items.length ? items.map((item, index) => <NewsRow key={item.id} item={item} ticker={analysis.company.ticker} lead={index === 0} />) : (
+              <div className="news-empty">
+                <Rss size={30} />
+                <h3>No recent {filter === "all" ? "coverage" : FILTERS.find((option) => option.key === filter)?.label.toLowerCase()} found</h3>
+                <p>Try another filter. Source coverage can vary by company and trading day.</p>
+                {newsFreshness?.status === "unavailable" && <Button kind="tertiary" renderIcon={Renew} onClick={onRetry}>Retry news sources</Button>}
+              </div>
+            )}
+          </div>
+
+          <aside className="news-sources" aria-label="News source details">
+            <h3>Feed details</h3>
+            <dl className="news-feed-freshness">
+              <div><dt>Updated</dt><dd>{formatPublished(analysis.news.fetched_at)}</dd></div>
+              <div><dt>Status</dt><dd>{newsFreshness?.status ?? "live"}</dd></div>
+            </dl>
+            <dl className="news-feed-counts">
+              <div><dt>Company</dt><dd>{directCount}</dd></div>
+              <div><dt>Mentions</dt><dd>{tickerCount}</dd></div>
+              <div><dt>Industry</dt><dd>{industryCount}</dd></div>
+            </dl>
+            <div className="news-provider-list">
+              <h4>Sources</h4>
+              <ul>{analysis.news.providers.map((provider) => <li key={provider}>{provider}</li>)}</ul>
+            </div>
+            {analysis.news.industry_query && <p className="news-industry-query">{analysis.news.industry_query}</p>}
+            {analysis.news.warnings.map((warning) => <p className="news-source-warning" key={warning}>{warning}</p>)}
+            <p className="news-disclosure">Headlines and excerpts come from public aggregators and publishers. Open the original source before relying on a story. SEC items are official filings.</p>
+          </aside>
+        </div>
+      </section>
+    </div>
+  );
+}

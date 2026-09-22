@@ -1,0 +1,3784 @@
+{
+  "fixture_version": 1,
+  "ticker": "BRK-B",
+  "category": "unusual share structure",
+  "captured_at": "2026-08-31T01:41:28.696Z",
+  "captured_from": "https://aplexanalysis.aplex-1.chatgpt.site/api/v1/companies/BRK-B/analysis",
+  "assumptions": null,
+  "sources": {
+    "financials": {
+      "profile": {
+        "cik": "0001067983",
+        "name": "Berkshire Hathaway Inc.",
+        "sector": null,
+        "industry": "Fire, Marine & Casualty Insurance",
+        "exchange": "NYSE",
+        "description": "Berkshire Hathaway and its subsidiaries engage in diverse business activities including insurance and reinsurance, utilities and energy, freight rail transportation, manufacturing, services and retailing.",
+        "description_source": "Nasdaq company profile",
+        "description_source_url": "https://www.nasdaq.com/market-activity/stocks/brk-b/company-profile"
+      },
+      "periods": [
+        {
+          "fiscal_year": 2016,
+          "period_type": "FY",
+          "period_end": "2016-12-31",
+          "filed_at": "2019-02-25",
+          "accession_number": "0001193125-19-048926",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 215114000000,
+            "net_income": 24074000000,
+            "operating_cash_flow": 32647000000,
+            "capex": 12954000000,
+            "cash": 28048000000,
+            "total_assets": 620854000000,
+            "total_liabilities": 335426000000,
+            "equity": 282070000000,
+            "inventory": 15727000000,
+            "free_cash_flow": 19693000000,
+            "cash_and_investments": 28048000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Revenues",
+              "accession_number": "0001193125-19-048926",
+              "filed": "2019-02-25",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312519048926"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-19-048926",
+              "filed": "2019-02-25",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312519048926"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-19-048926",
+              "filed": "2019-02-25",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312519048926"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-19-048926",
+              "filed": "2019-02-25",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312519048926"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+              "accession_number": "0001193125-18-057033",
+              "filed": "2018-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312518057033"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001193125-19-048926",
+              "filed": "2019-02-25",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312519048926"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001193125-18-057033",
+              "filed": "2018-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312518057033"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001193125-18-057033",
+              "filed": "2018-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312518057033"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001193125-18-057033",
+              "filed": "2018-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312518057033"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2017,
+          "period_type": "FY",
+          "period_end": "2017-12-31",
+          "filed_at": "2020-02-24",
+          "accession_number": "0001564590-20-005874",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 239933000000,
+            "net_income": 44940000000,
+            "operating_cash_flow": 45728000000,
+            "capex": 11708000000,
+            "cash": 31583000000,
+            "total_assets": 702095000000,
+            "total_liabilities": 350141000000,
+            "equity": 348296000000,
+            "inventory": 17366000000,
+            "free_cash_flow": 34020000000,
+            "cash_and_investments": 31583000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Revenues",
+              "accession_number": "0001564590-20-005874",
+              "filed": "2020-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020005874"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001564590-20-005874",
+              "filed": "2020-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020005874"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001564590-20-005874",
+              "filed": "2020-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020005874"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001564590-20-005874",
+              "filed": "2020-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020005874"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+              "accession_number": "0001193125-18-057033",
+              "filed": "2018-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312518057033"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001564590-20-005874",
+              "filed": "2020-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020005874"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001193125-19-048926",
+              "filed": "2019-02-25",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312519048926"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001193125-19-048926",
+              "filed": "2019-02-25",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312519048926"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001193125-19-048926",
+              "filed": "2019-02-25",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312519048926"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2018,
+          "period_type": "FY",
+          "period_end": "2018-12-31",
+          "filed_at": "2021-03-01",
+          "accession_number": "0001564590-21-009611",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 175445000000,
+            "net_income": 4021000000,
+            "operating_cash_flow": 37400000000,
+            "capex": 14537000000,
+            "share_repurchases": 1346000000,
+            "cash": 30811000000,
+            "total_assets": 707794000000,
+            "total_liabilities": 355294000000,
+            "equity": 348703000000,
+            "inventory": 19069000000,
+            "free_cash_flow": 22863000000,
+            "cash_and_investments": 30811000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001564590-20-005874",
+              "filed": "2020-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020005874"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-20-005874",
+              "filed": "2020-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020005874"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-20-005874",
+              "filed": "2020-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020005874"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2019,
+          "period_type": "FY",
+          "period_end": "2019-12-31",
+          "filed_at": "2022-02-28",
+          "accession_number": "0001564590-22-007322",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 176512000000,
+            "net_income": 81417000000,
+            "operating_cash_flow": 38687000000,
+            "capex": 15979000000,
+            "share_repurchases": 4850000000,
+            "cash": 64632000000,
+            "total_assets": 817729000000,
+            "total_liabilities": 389166000000,
+            "equity": 424791000000,
+            "inventory": 19852000000,
+            "free_cash_flow": 22708000000,
+            "cash_and_investments": 64632000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2020,
+          "period_type": "FY",
+          "period_end": "2020-12-31",
+          "filed_at": "2023-02-27",
+          "accession_number": "0000950170-23-004451",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 166733000000,
+            "net_income": 42521000000,
+            "operating_cash_flow": 39773000000,
+            "capex": 13012000000,
+            "share_repurchases": 24706000000,
+            "cash": 48396000000,
+            "total_assets": 873729000000,
+            "total_liabilities": 422393000000,
+            "equity": 443164000000,
+            "inventory": 19208000000,
+            "free_cash_flow": 26761000000,
+            "cash_and_investments": 48396000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2021,
+          "period_type": "FY",
+          "period_end": "2021-12-31",
+          "filed_at": "2024-02-26",
+          "accession_number": "0000950170-24-019719",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 191252000000,
+            "net_income": 89937000000,
+            "operating_cash_flow": 39427000000,
+            "capex": 13276000000,
+            "share_repurchases": 27061000000,
+            "cash": 88706000000,
+            "total_assets": 959388000000,
+            "equity": 506199000000,
+            "inventory": 20954000000,
+            "free_cash_flow": 26151000000,
+            "cash_and_investments": 88706000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2022,
+          "period_type": "FY",
+          "period_end": "2022-12-31",
+          "filed_at": "2025-02-24",
+          "accession_number": "0000950170-25-025210",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 207771000000,
+            "net_income": -22759000000,
+            "operating_cash_flow": 37350000000,
+            "capex": 15464000000,
+            "share_repurchases": 7854000000,
+            "cash": 36399000000,
+            "total_assets": 948465000000,
+            "total_liabilities": 466784000000,
+            "equity": 473424000000,
+            "inventory": 25366000000,
+            "free_cash_flow": 21886000000,
+            "cash_and_investments": 36399000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2023,
+          "period_type": "FY",
+          "period_end": "2023-12-31",
+          "filed_at": "2026-03-02",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 254906000000,
+            "net_income": 96223000000,
+            "operating_cash_flow": 49196000000,
+            "capex": 19409000000,
+            "share_repurchases": 9171000000,
+            "cash": 38643000000,
+            "total_assets": 1069978000000,
+            "total_liabilities": 499208000000,
+            "equity": 561273000000,
+            "inventory": 25856000000,
+            "free_cash_flow": 29787000000,
+            "cash_and_investments": 38643000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2024,
+          "period_type": "FY",
+          "period_end": "2024-12-31",
+          "filed_at": "2026-03-02",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 249714000000,
+            "net_income": 88995000000,
+            "operating_cash_flow": 30592000000,
+            "capex": 18976000000,
+            "share_repurchases": 2918000000,
+            "cash": 48376000000,
+            "total_assets": 1153881000000,
+            "total_liabilities": 502226000000,
+            "equity": 649368000000,
+            "inventory": 24008000000,
+            "free_cash_flow": 11616000000,
+            "cash_and_investments": 48376000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2025,
+          "period_type": "FY",
+          "period_end": "2025-12-31",
+          "filed_at": "2026-03-02",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 247244000000,
+            "net_income": 66968000000,
+            "operating_cash_flow": 45969000000,
+            "capex": 20927000000,
+            "cash": 52569000000,
+            "total_assets": 1222176000000,
+            "total_liabilities": 502473000000,
+            "equity": 717419000000,
+            "inventory": 24424000000,
+            "free_cash_flow": 25042000000,
+            "cash_and_investments": 52569000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        }
+      ],
+      "quarterlyPeriods": [
+        {
+          "fiscal_year": 2020,
+          "fiscal_quarter": 3,
+          "period_type": "Q3",
+          "period_end": "2020-09-30",
+          "filed_at": "2020-11-09",
+          "accession_number": "0001564590-20-052144",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 43494000000,
+            "net_income": 30137000000,
+            "operating_cash_flow": 11761000000,
+            "capex": 3329000000,
+            "share_repurchases": 8973000000,
+            "cash": 27437000000,
+            "total_assets": 829946000000,
+            "total_liabilities": 410731000000,
+            "equity": 415155000000,
+            "inventory": 19361000000,
+            "free_cash_flow": 8432000000,
+            "cash_and_investments": 27437000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-20-052144",
+              "filed": "2020-11-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459020052144"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2020,
+          "fiscal_quarter": 4,
+          "period_type": "Q4",
+          "period_end": "2020-12-31",
+          "filed_at": "2023-02-27",
+          "accession_number": "0000950170-23-004451",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 44409000000,
+            "net_income": 35835000000,
+            "operating_cash_flow": 10546000000,
+            "capex": 3496000000,
+            "share_repurchases": 8994000000,
+            "cash": 48396000000,
+            "total_assets": 873729000000,
+            "total_liabilities": 422393000000,
+            "equity": 443164000000,
+            "inventory": 19208000000,
+            "free_cash_flow": 7050000000,
+            "cash_and_investments": 48396000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001564590-21-009611",
+              "filed": "2021-03-01",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021009611"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-22-007322",
+              "filed": "2022-02-28",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022007322"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2021,
+          "fiscal_quarter": 1,
+          "period_type": "Q1",
+          "period_end": "2021-03-31",
+          "filed_at": "2021-05-03",
+          "accession_number": "0001564590-21-022703",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 44623000000,
+            "net_income": 11711000000,
+            "operating_cash_flow": 9306000000,
+            "capex": 2519000000,
+            "share_repurchases": 6580000000,
+            "cash": 60488000000,
+            "total_assets": 884393000000,
+            "total_liabilities": 428217000000,
+            "equity": 447987000000,
+            "inventory": 18886000000,
+            "free_cash_flow": 6787000000,
+            "cash_and_investments": 60488000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-21-022703",
+              "filed": "2021-05-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021022703"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2021,
+          "fiscal_quarter": 2,
+          "period_type": "Q2",
+          "period_end": "2021-06-30",
+          "filed_at": "2021-08-09",
+          "accession_number": "0001564590-21-042312",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 48110000000,
+            "net_income": 28094000000,
+            "operating_cash_flow": 10253000000,
+            "capex": 3144000000,
+            "share_repurchases": 5980000000,
+            "cash": 42832000000,
+            "total_assets": 912493000000,
+            "total_liabilities": 433693000000,
+            "equity": 470409000000,
+            "inventory": 19393000000,
+            "free_cash_flow": 7109000000,
+            "cash_and_investments": 42832000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-21-042312",
+              "filed": "2021-08-09",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021042312"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2021,
+          "fiscal_quarter": 3,
+          "period_type": "Q3",
+          "period_end": "2021-09-30",
+          "filed_at": "2021-11-08",
+          "accession_number": "0001564590-21-055032",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 49014000000,
+            "net_income": 10344000000,
+            "operating_cash_flow": 12067000000,
+            "capex": 3581000000,
+            "share_repurchases": 7632000000,
+            "cash": 70641000000,
+            "total_assets": 920758000000,
+            "total_liabilities": 439683000000,
+            "equity": 472480000000,
+            "inventory": 20191000000,
+            "free_cash_flow": 8486000000,
+            "cash_and_investments": 70641000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-21-055032",
+              "filed": "2021-11-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459021055032"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2021,
+          "fiscal_quarter": 4,
+          "period_type": "Q4",
+          "period_end": "2021-12-31",
+          "filed_at": "2024-02-26",
+          "accession_number": "0000950170-24-019719",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 49505000000,
+            "net_income": 39788000000,
+            "operating_cash_flow": 7801000000,
+            "capex": 4032000000,
+            "share_repurchases": 6869000000,
+            "cash": 88706000000,
+            "total_assets": 959388000000,
+            "equity": 506199000000,
+            "inventory": 20954000000,
+            "free_cash_flow": 3769000000,
+            "cash_and_investments": 88706000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-23-004451",
+              "filed": "2023-02-27",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023004451"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2022,
+          "fiscal_quarter": 1,
+          "period_type": "Q1",
+          "period_end": "2022-03-31",
+          "filed_at": "2022-05-02",
+          "accession_number": "0001564590-22-016907",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 49426000000,
+            "net_income": 5460000000,
+            "operating_cash_flow": 6829000000,
+            "capex": 3090000000,
+            "share_repurchases": 3180000000,
+            "cash": 39662000000,
+            "total_assets": 969506000000,
+            "equity": 508141000000,
+            "inventory": 22572000000,
+            "free_cash_flow": 3739000000,
+            "cash_and_investments": 39662000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001564590-22-016907",
+              "filed": "2022-05-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022016907"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001564590-22-016907",
+              "filed": "2022-05-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022016907"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001564590-22-016907",
+              "filed": "2022-05-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022016907"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001564590-22-016907",
+              "filed": "2022-05-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022016907"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001564590-22-016907",
+              "filed": "2022-05-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022016907"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001564590-22-016907",
+              "filed": "2022-05-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022016907"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001564590-22-016907",
+              "filed": "2022-05-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022016907"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-22-016907",
+              "filed": "2022-05-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022016907"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-22-016907",
+              "filed": "2022-05-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022016907"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2022,
+          "fiscal_quarter": 2,
+          "period_type": "Q2",
+          "period_end": "2022-06-30",
+          "filed_at": "2022-08-08",
+          "accession_number": "0001564590-22-028282",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 52933000000,
+            "net_income": -43755000000,
+            "operating_cash_flow": 8532000000,
+            "capex": 3743000000,
+            "share_repurchases": 1011000000,
+            "cash": 31224000000,
+            "total_assets": 909860000000,
+            "equity": 461229000000,
+            "inventory": 24560000000,
+            "free_cash_flow": 4789000000,
+            "cash_and_investments": 31224000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001564590-22-028282",
+              "filed": "2022-08-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022028282"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001564590-22-028282",
+              "filed": "2022-08-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022028282"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001564590-22-028282",
+              "filed": "2022-08-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022028282",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001564590-22-028282",
+              "filed": "2022-08-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022028282",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001564590-22-028282",
+              "filed": "2022-08-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022028282",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001564590-22-028282",
+              "filed": "2022-08-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022028282"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001564590-22-028282",
+              "filed": "2022-08-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022028282"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001564590-22-028282",
+              "filed": "2022-08-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022028282"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001564590-22-028282",
+              "filed": "2022-08-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000156459022028282"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2022,
+          "fiscal_quarter": 3,
+          "period_type": "Q3",
+          "period_end": "2022-09-30",
+          "filed_at": "2022-11-07",
+          "accession_number": "0000950170-22-022287",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 53306000000,
+            "net_income": -2688000000,
+            "operating_cash_flow": 11662000000,
+            "capex": 4074000000,
+            "share_repurchases": 1055000000,
+            "cash": 33356000000,
+            "total_assets": 902296000000,
+            "equity": 455430000000,
+            "inventory": 25102000000,
+            "free_cash_flow": 7588000000,
+            "cash_and_investments": 33356000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-22-022287",
+              "filed": "2022-11-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017022022287"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-22-022287",
+              "filed": "2022-11-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017022022287"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-22-022287",
+              "filed": "2022-11-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017022022287",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-22-022287",
+              "filed": "2022-11-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017022022287",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-22-022287",
+              "filed": "2022-11-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017022022287",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-22-022287",
+              "filed": "2022-11-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017022022287"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-22-022287",
+              "filed": "2022-11-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017022022287"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-22-022287",
+              "filed": "2022-11-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017022022287"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-22-022287",
+              "filed": "2022-11-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017022022287"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2022,
+          "fiscal_quarter": 4,
+          "period_type": "Q4",
+          "period_end": "2022-12-31",
+          "filed_at": "2025-02-24",
+          "accession_number": "0000950170-25-025210",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 52106000000,
+            "net_income": 18224000000,
+            "operating_cash_flow": 10327000000,
+            "capex": 4557000000,
+            "share_repurchases": 2608000000,
+            "cash": 36399000000,
+            "total_assets": 948465000000,
+            "total_liabilities": 466784000000,
+            "equity": 473424000000,
+            "inventory": 25366000000,
+            "free_cash_flow": 5770000000,
+            "cash_and_investments": 36399000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-24-019719",
+              "filed": "2024-02-26",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024019719"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2023,
+          "fiscal_quarter": 1,
+          "period_type": "Q1",
+          "period_end": "2023-03-31",
+          "filed_at": "2023-05-08",
+          "accession_number": "0000950170-23-018438",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 59745000000,
+            "net_income": 35504000000,
+            "operating_cash_flow": 8693000000,
+            "capex": 3713000000,
+            "share_repurchases": 4450000000,
+            "cash": 27298000000,
+            "total_assets": 997072000000,
+            "equity": 504554000000,
+            "inventory": 25499000000,
+            "free_cash_flow": 4980000000,
+            "cash_and_investments": 27298000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-23-018438",
+              "filed": "2023-05-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023018438"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-23-018438",
+              "filed": "2023-05-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023018438"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-23-018438",
+              "filed": "2023-05-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023018438"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-23-018438",
+              "filed": "2023-05-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023018438"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-23-018438",
+              "filed": "2023-05-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023018438"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-23-018438",
+              "filed": "2023-05-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023018438"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-23-018438",
+              "filed": "2023-05-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023018438"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-23-018438",
+              "filed": "2023-05-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023018438"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-23-018438",
+              "filed": "2023-05-08",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023018438"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2023,
+          "fiscal_quarter": 2,
+          "period_type": "Q2",
+          "period_end": "2023-06-30",
+          "filed_at": "2023-08-07",
+          "accession_number": "0000950170-23-038705",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 65383000000,
+            "net_income": 35912000000,
+            "operating_cash_flow": 12434000000,
+            "capex": 4685000000,
+            "share_repurchases": 1400000000,
+            "cash": 50653000000,
+            "total_assets": 1041573000000,
+            "total_liabilities": 489812000000,
+            "equity": 539883000000,
+            "inventory": 25295000000,
+            "free_cash_flow": 7749000000,
+            "cash_and_investments": 50653000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-23-038705",
+              "filed": "2023-08-07",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023038705"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2023,
+          "fiscal_quarter": 3,
+          "period_type": "Q3",
+          "period_end": "2023-09-30",
+          "filed_at": "2023-11-06",
+          "accession_number": "0000950170-23-058993",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 65197000000,
+            "net_income": -12767000000,
+            "operating_cash_flow": 13669000000,
+            "capex": 5303000000,
+            "share_repurchases": 1128000000,
+            "cash": 31604000000,
+            "total_assets": 1019933000000,
+            "total_liabilities": 485206000000,
+            "equity": 525330000000,
+            "inventory": 24755000000,
+            "free_cash_flow": 8366000000,
+            "cash_and_investments": 31604000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-23-058993",
+              "filed": "2023-11-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017023058993"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2023,
+          "fiscal_quarter": 4,
+          "period_type": "Q4",
+          "period_end": "2023-12-31",
+          "filed_at": "2026-03-02",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 64581000000,
+            "net_income": 37574000000,
+            "operating_cash_flow": 14400000000,
+            "capex": 5708000000,
+            "share_repurchases": 2193000000,
+            "cash": 38643000000,
+            "total_assets": 1069978000000,
+            "total_liabilities": 499208000000,
+            "equity": 561273000000,
+            "inventory": 25856000000,
+            "free_cash_flow": 8692000000,
+            "cash_and_investments": 38643000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-25-025210",
+              "filed": "2025-02-24",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025025210"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2024,
+          "fiscal_quarter": 1,
+          "period_type": "Q1",
+          "period_end": "2024-03-31",
+          "filed_at": "2024-05-06",
+          "accession_number": "0000950170-24-053185",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 61291000000,
+            "net_income": 12702000000,
+            "operating_cash_flow": 10566000000,
+            "capex": 4393000000,
+            "share_repurchases": 2562000000,
+            "cash": 36160000000,
+            "total_assets": 1070035000000,
+            "total_liabilities": 492250000000,
+            "equity": 571490000000,
+            "inventory": 23670000000,
+            "free_cash_flow": 6173000000,
+            "cash_and_investments": 36160000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-24-053185",
+              "filed": "2024-05-06",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024053185"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2024,
+          "fiscal_quarter": 2,
+          "period_type": "Q2",
+          "period_end": "2024-06-30",
+          "filed_at": "2024-08-05",
+          "accession_number": "0000950170-24-090305",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 63519000000,
+            "net_income": 30348000000,
+            "operating_cash_flow": 13602000000,
+            "capex": 4535000000,
+            "share_repurchases": 356000000,
+            "cash": 43071000000,
+            "total_assets": 1108860000000,
+            "total_liabilities": 500889000000,
+            "equity": 601697000000,
+            "inventory": 23498000000,
+            "free_cash_flow": 9067000000,
+            "cash_and_investments": 43071000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-24-090305",
+              "filed": "2024-08-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024090305"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2024,
+          "fiscal_quarter": 3,
+          "period_type": "Q3",
+          "period_end": "2024-09-30",
+          "filed_at": "2024-11-04",
+          "accession_number": "0000950170-24-120241",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 62048000000,
+            "net_income": 26251000000,
+            "operating_cash_flow": 1803000000,
+            "capex": 4701000000,
+            "share_repurchases": 0,
+            "cash": 37992000000,
+            "total_assets": 1147251000000,
+            "total_liabilities": 515445000000,
+            "equity": 629069000000,
+            "inventory": 23617000000,
+            "free_cash_flow": -2898000000,
+            "cash_and_investments": 37992000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-24-120241",
+              "filed": "2024-11-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017024120241"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2024,
+          "fiscal_quarter": 4,
+          "period_type": "Q4",
+          "period_end": "2024-12-31",
+          "filed_at": "2026-03-02",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 62856000000,
+            "net_income": 19694000000,
+            "operating_cash_flow": 4621000000,
+            "capex": 5347000000,
+            "share_repurchases": 0,
+            "cash": 48376000000,
+            "total_assets": 1153881000000,
+            "total_liabilities": 502226000000,
+            "equity": 649368000000,
+            "inventory": 24008000000,
+            "free_cash_flow": -726000000,
+            "cash_and_investments": 48376000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2025,
+          "fiscal_quarter": 1,
+          "period_type": "Q1",
+          "period_end": "2025-03-31",
+          "filed_at": "2025-05-05",
+          "accession_number": "0000950170-25-063112",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 59357000000,
+            "net_income": 4603000000,
+            "operating_cash_flow": 10903000000,
+            "capex": 4281000000,
+            "share_repurchases": 2562000000,
+            "cash": 42855000000,
+            "total_assets": 1164532000000,
+            "total_liabilities": 507790000000,
+            "equity": 654471000000,
+            "inventory": 24034000000,
+            "free_cash_flow": 6622000000,
+            "cash_and_investments": 42855000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-25-063112",
+              "filed": "2025-05-05",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2025,
+          "fiscal_quarter": 2,
+          "period_type": "Q2",
+          "period_end": "2025-06-30",
+          "filed_at": "2025-08-04",
+          "accession_number": "0000950170-25-101578",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 61406000000,
+            "net_income": 12370000000,
+            "operating_cash_flow": 10085000000,
+            "capex": 4858000000,
+            "share_repurchases": 356000000,
+            "cash": 101228000000,
+            "total_assets": 1163968000000,
+            "total_liabilities": 493692000000,
+            "equity": 667989000000,
+            "inventory": 24371000000,
+            "free_cash_flow": 5227000000,
+            "cash_and_investments": 101228000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0000950170-25-101578",
+              "filed": "2025-08-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2025,
+          "fiscal_quarter": 3,
+          "period_type": "Q3",
+          "period_end": "2025-09-30",
+          "filed_at": "2025-11-03",
+          "accession_number": "0001193125-25-261548",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 63747000000,
+            "net_income": 30796000000,
+            "operating_cash_flow": 13789000000,
+            "capex": 5586000000,
+            "share_repurchases": 0,
+            "cash": 77111000000,
+            "total_assets": 1225963000000,
+            "total_liabilities": 525522000000,
+            "equity": 698155000000,
+            "inventory": 25319000000,
+            "free_cash_flow": 8203000000,
+            "cash_and_investments": 77111000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548",
+              "formula": "year-to-date Q3 minus year-to-date Q2"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001193125-25-261548",
+              "filed": "2025-11-03",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2025,
+          "fiscal_quarter": 4,
+          "period_type": "Q4",
+          "period_end": "2025-12-31",
+          "filed_at": "2026-03-02",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K",
+          "currency": "USD",
+          "values": {
+            "revenue": 62734000000,
+            "net_income": 19199000000,
+            "operating_cash_flow": 11192000000,
+            "capex": 6202000000,
+            "cash": 52569000000,
+            "total_assets": 1222176000000,
+            "total_liabilities": 502473000000,
+            "equity": 717419000000,
+            "inventory": 24424000000,
+            "free_cash_flow": 4990000000,
+            "cash_and_investments": 52569000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899",
+              "formula": "fiscal-year value minus Q1, Q2 and Q3"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001193125-26-083899",
+              "filed": "2026-03-02",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2026,
+          "fiscal_quarter": 1,
+          "period_type": "Q1",
+          "period_end": "2026-03-31",
+          "filed_at": "2026-05-04",
+          "accession_number": "0001193125-26-202243",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 63137000000,
+            "net_income": 10106000000,
+            "operating_cash_flow": 10438000000,
+            "capex": 4986000000,
+            "share_repurchases": 235000000,
+            "cash": 58810000000,
+            "total_assets": 1252271000000,
+            "total_liabilities": 522821000000,
+            "equity": 727181000000,
+            "inventory": 25523000000,
+            "free_cash_flow": 5452000000,
+            "cash_and_investments": 58810000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001193125-26-202243",
+              "filed": "2026-05-04",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        },
+        {
+          "fiscal_year": 2026,
+          "fiscal_quarter": 2,
+          "period_type": "Q2",
+          "period_end": "2026-06-30",
+          "filed_at": "2026-08-10",
+          "accession_number": "0001193125-26-341032",
+          "form": "10-Q",
+          "currency": "USD",
+          "values": {
+            "revenue": 70115000000,
+            "net_income": 25667000000,
+            "operating_cash_flow": 11215000000,
+            "capex": 5645000000,
+            "share_repurchases": 4209000000,
+            "cash": 41360000000,
+            "total_assets": 1263071000000,
+            "total_liabilities": 512894000000,
+            "equity": 747910000000,
+            "inventory": 26575000000,
+            "free_cash_flow": 5570000000,
+            "cash_and_investments": 41360000000
+          },
+          "provenance": {
+            "revenue": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032"
+            },
+            "net_income": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetIncomeLoss",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032"
+            },
+            "operating_cash_flow": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "capex": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "share_repurchases": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032",
+              "formula": "year-to-date Q2 minus year-to-date Q1"
+            },
+            "cash": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032"
+            },
+            "total_assets": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Assets",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032"
+            },
+            "total_liabilities": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:Liabilities",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032"
+            },
+            "equity": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:StockholdersEquity",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032"
+            },
+            "inventory": {
+              "provider": "SEC EDGAR Company Facts",
+              "taxonomy": "us-gaap:InventoryNet",
+              "accession_number": "0001193125-26-341032",
+              "filed": "2026-08-10",
+              "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032"
+            },
+            "free_cash_flow": {
+              "formula": "operating_cash_flow - abs(capex)"
+            },
+            "cash_and_investments": {
+              "formula": "cash + short_term_investments"
+            }
+          }
+        }
+      ],
+      "filings": [
+        {
+          "form": "8-K",
+          "filing_date": "2026-08-11",
+          "report_date": "2026-08-08",
+          "accession_number": "0001193125-26-344495",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526344495/d159922d8k.htm"
+        },
+        {
+          "form": "10-Q",
+          "filing_date": "2026-08-10",
+          "report_date": "2026-06-30",
+          "accession_number": "0001193125-26-341032",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2026-05-07",
+          "report_date": "2026-05-02",
+          "accession_number": "0001193125-26-212148",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526212148/d74313d8k.htm"
+        },
+        {
+          "form": "10-Q",
+          "filing_date": "2026-05-04",
+          "report_date": "2026-03-31",
+          "accession_number": "0001193125-26-202243",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526202243/brka-20260331.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2026-04-16",
+          "report_date": "2026-04-16",
+          "accession_number": "0001193125-26-159326",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526159326/d903301d8k.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2026-03-05",
+          "report_date": "2026-03-04",
+          "accession_number": "0001193125-26-092557",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526092557/d82599d8k.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2026-03-02",
+          "report_date": "2026-02-28",
+          "accession_number": "0001193125-26-085801",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526085801/d117283d8k.htm"
+        },
+        {
+          "form": "10-K",
+          "filing_date": "2026-03-02",
+          "report_date": "2025-12-31",
+          "accession_number": "0001193125-26-083899",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2025-12-11",
+          "report_date": "2025-12-08",
+          "accession_number": "0001193125-25-314935",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525314935/d10933d8k.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2025-11-21",
+          "report_date": "2025-11-20",
+          "accession_number": "0001193125-25-290864",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525290864/d45429d8k.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2025-11-03",
+          "report_date": "2025-11-01",
+          "accession_number": "0001193125-25-262260",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525262260/d22917d8k.htm"
+        },
+        {
+          "form": "10-Q",
+          "filing_date": "2025-11-03",
+          "report_date": "2025-09-30",
+          "accession_number": "0001193125-25-261548",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525261548/brka-20250930.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2025-10-03",
+          "report_date": "2025-09-30",
+          "accession_number": "0001193125-25-229405",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525229405/d84825d8k.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2025-08-04",
+          "report_date": "2025-08-02",
+          "accession_number": "0001193125-25-172579",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525172579/d940849d8k.htm"
+        },
+        {
+          "form": "10-Q",
+          "filing_date": "2025-08-04",
+          "report_date": "2025-06-30",
+          "accession_number": "0000950170-25-101578",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025101578/brka-20250630.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2025-05-08",
+          "report_date": "2025-05-03",
+          "accession_number": "0001193125-25-115695",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525115695/d28310d8k.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2025-05-06",
+          "report_date": "2025-05-03",
+          "accession_number": "0001193125-25-113900",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525113900/d910967d8k.htm"
+        },
+        {
+          "form": "10-Q",
+          "filing_date": "2025-05-05",
+          "report_date": "2025-03-31",
+          "accession_number": "0000950170-25-063112",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000095017025063112/brka-20250331.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2025-04-17",
+          "report_date": "2025-04-17",
+          "accession_number": "0001193125-25-084458",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525084458/d934563d8k.htm"
+        },
+        {
+          "form": "8-K",
+          "filing_date": "2025-02-24",
+          "report_date": "2025-02-22",
+          "accession_number": "0001193125-25-033393",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525033393/d935582d8k.htm"
+        }
+      ],
+      "filingRisks": [
+        {
+          "severity": "filed",
+          "kind": "filing_theme",
+          "theme": "cybersecurity-data-privacy",
+          "title": "Cybersecurity and data privacy",
+          "detail": "The filing reports that cybersecurity risks could result in economic losses to its businesses and reputational damage.",
+          "evidence": [
+            "Cybersecurity risks could result in economic losses to our businesses and reputational damage.",
+            "Cyber-attacks could further adversely affect our ability to operate our facilities, information technology and business systems or could compromise confidential company, customer and employee information."
+          ],
+          "item": "Item 1A",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+          "filing_date": "2026-03-02",
+          "report_date": "2025-12-31",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K"
+        },
+        {
+          "severity": "filed",
+          "kind": "filing_theme",
+          "theme": "regulation-legal",
+          "title": "Regulation and legal exposure",
+          "detail": "The filing reports that failure to comply with these increased laws and regulations could result in reputation damage and significant economic penalties.",
+          "evidence": [
+            "Failure to comply with these increased laws and regulations could result in reputation damage and significant economic penalties.",
+            "Furthermore, our regulated energy subsidiaries are exposed to losses arising from wildfires and related litigation and judicial outcomes."
+          ],
+          "item": "Item 1A",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+          "filing_date": "2026-03-02",
+          "report_date": "2025-12-31",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K"
+        },
+        {
+          "severity": "filed",
+          "kind": "filing_theme",
+          "theme": "competition-innovation",
+          "title": "Competition and innovation",
+          "detail": "The filing reports that additionally, if the company is unable to acquire, develop, implement, adopt or protect rights around new technology, the company may suffer a competitive disadvantage, which could also have an adverse effect on its results of operations, financial condition and/or liquidity.",
+          "evidence": [
+            "Additionally, if we are unable to acquire, develop, implement, adopt or protect rights around new technology, we may suffer a competitive disadvantage, which could also have an adverse effect on our results of operations, financial condition and/or liquidity.",
+            "Our large statutory surplus is a competitive advantage, and a long-term material decline could have an adverse effect on our claims-paying ability ratings and our ability to write new insurance business, thus potentially reducing our future underwriting profits."
+          ],
+          "item": "Item 1A",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+          "filing_date": "2026-03-02",
+          "report_date": "2025-12-31",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K"
+        },
+        {
+          "severity": "filed",
+          "kind": "filing_theme",
+          "theme": "international-geopolitical",
+          "title": "International and geopolitical exposure",
+          "detail": "The filing reports that geopolitical events could cause losses to its business and losses in the values of securities the company own.",
+          "evidence": [
+            "Geopolitical events could cause losses to our business and losses in the values of securities we own.",
+            "In addition, international trade policies in the U.S. and elsewhere, including tariffs and other barriers, could negatively impact our operating results."
+          ],
+          "item": "Item 1A",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+          "filing_date": "2026-03-02",
+          "report_date": "2025-12-31",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K"
+        },
+        {
+          "severity": "filed",
+          "kind": "filing_theme",
+          "theme": "people-execution",
+          "title": "People and execution",
+          "detail": "The filing reports that if for any reason the services of its key personnel were to become unavailable, there could be a material adverse effect on its operations.",
+          "evidence": [
+            "If for any reason the services of our key personnel were to become unavailable, there could be a material adverse effect on our operations.",
+            "Further, labor disruptions or strikes at our subsidiaries, our customers or within our supply chains could reduce our sales, increase our costs and negatively impact our periodic operating results."
+          ],
+          "item": "Item 1A",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+          "filing_date": "2026-03-02",
+          "report_date": "2025-12-31",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K"
+        },
+        {
+          "severity": "filed",
+          "kind": "filing_theme",
+          "theme": "financial-liquidity",
+          "title": "Financial and liquidity risk",
+          "detail": "The filing reports that its inability to recruit, train and retain qualified and competent managers and personnel could negatively affect the operating results, financial condition and liquidity of its subsidiaries and Berkshire as a whole.",
+          "evidence": [
+            "Our inability to recruit, train and retain qualified and competent managers and personnel could negatively affect the operating results, financial condition and liquidity of our subsidiaries and Berkshire as a whole.",
+            "Restricted access to debt capital markets by BNSF or BHE could adversely affect the results of operations, liquidity and/or capital resources of these businesses."
+          ],
+          "item": "Item 1A",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+          "filing_date": "2026-03-02",
+          "report_date": "2025-12-31",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K"
+        },
+        {
+          "severity": "filed",
+          "kind": "filing_theme",
+          "theme": "macroeconomic-demand",
+          "title": "Macroeconomic conditions and demand",
+          "detail": "The filing reports that unfavorable general economic conditions may significantly reduce its operating earnings and impair its ability to access capital markets at a reasonable cost.",
+          "evidence": [
+            "Unfavorable general economic conditions may significantly reduce our operating earnings and impair our ability to access capital markets at a reasonable cost.",
+            "Significant deteriorations of economic conditions, including significant inflation over prolonged time periods could produce a material adverse effect on one or more of our significant operations."
+          ],
+          "item": "Item 1A",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+          "filing_date": "2026-03-02",
+          "report_date": "2025-12-31",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K"
+        },
+        {
+          "severity": "filed",
+          "kind": "filing_theme",
+          "theme": "climate-physical-events",
+          "title": "Climate and physical events",
+          "detail": "The filing reports that climate change and the regulation of greenhouse gas (“GHG”) emissions may impact its businesses.",
+          "evidence": [
+            "Climate change and the regulation of greenhouse gas (“GHG”) emissions may impact our businesses.",
+            "Climate-related events, including hurricanes, floods, wildfires, and other extreme weather events may increase the physical risks and impacts to our operations."
+          ],
+          "item": "Item 1A",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+          "filing_date": "2026-03-02",
+          "report_date": "2025-12-31",
+          "accession_number": "0001193125-26-083899",
+          "form": "10-K"
+        }
+      ]
+    },
+    "financialSourceMode": "frozen-provider-snapshot",
+    "quote": {
+      "price": 507.97,
+      "market_cap": 1118732243779,
+      "as_of": "Aug 13, 2026",
+      "currency": "USD",
+      "provider": "Nasdaq delayed quote",
+      "source_url": "https://www.nasdaq.com/market-activity/stocks/brk-b",
+      "is_delayed": false
+    },
+    "analystEstimates": {
+      "quarterly": [],
+      "annual": [],
+      "provider": "Nasdaq analyst consensus",
+      "as_of": null,
+      "source_url": "https://www.nasdaq.com/market-activity/stocks/brk-b/earnings",
+      "disclosure": "Analyst EPS estimates are consensus forecasts, not company guidance."
+    },
+    "peerSet": {
+      "companies": [],
+      "methodology": "No peers met the minimum relevance score of 55. AplexAnalysis leaves the set empty instead of showing companies with weak product, customer, or business-model overlap.",
+      "source_provider": "Nasdaq Stock Screener and company profiles",
+      "source_url": "https://www.nasdaq.com/market-activity/stocks/screener",
+      "source_as_of": "2026-08-30T20:17:36.395Z",
+      "candidates_considered": 0,
+      "selection_version": "peer-selection-4.3"
+    },
+    "newsFeed": {
+      "items": [],
+      "fetched_at": "2026-08-31T01:41:28.696Z",
+      "providers": [],
+      "industry_query": null,
+      "warnings": []
+    },
+    "warnings": []
+  }
+}

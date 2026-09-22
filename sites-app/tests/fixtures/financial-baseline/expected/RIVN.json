@@ -1,0 +1,164 @@
+{
+  "fixture_version": 1,
+  "ticker": "RIVN",
+  "captured_at": "2026-08-31T01:41:07.224Z",
+  "absolute_tolerance": 0.000001,
+  "relative_tolerance": 1e-9,
+  "expected_error": {
+    "code": "financial_data_unavailable",
+    "status": 422,
+    "message": "Required financial inputs are unavailable for this company."
+  },
+  "outputs": {
+    "headline": {
+      "score": 21,
+      "rating": "Unattractive",
+      "current_price": 15.86,
+      "fair_value": 2.4466751505953193,
+      "buy_target": 1.965216740679379,
+      "bear_value": 1.8750561734628033,
+      "base_value": 2.4466751505953193,
+      "bull_value": 3.328993951779654,
+      "upside": -0.8457329665450618
+    },
+    "metrics": {
+      "revenue_growth_yoy": 0.08390342052313882,
+      "net_income_growth_yoy": null,
+      "eps_growth_yoy": null,
+      "fcf_growth_yoy": null,
+      "revenue_cagr": null,
+      "net_income_cagr": null,
+      "fcf_cagr": null,
+      "gross_margin": 0.026731019120103953,
+      "operating_margin": -0.6654909968442547,
+      "fcf_margin": -0.4620382402079079,
+      "roic": -0.959400406504065,
+      "roe": -0.7936438833260775,
+      "net_debt": -1642000000,
+      "net_debt_to_fcf": null,
+      "fcf_conversion": null,
+      "share_change": 0.17077986179664362,
+      "buyback_yield": null,
+      "market_cap": 22905155167,
+      "pe": null,
+      "price_to_book": 4.985884886155856,
+      "price_to_fcf": null,
+      "fcf_yield": -0.10866549394024456,
+      "operating_margin_volatility": 30.012814241340386,
+      "earnings_positive_years": 0,
+      "history_years": 7
+    },
+    "valuation": {
+      "current_price": 15.86,
+      "bear_value": 1.8750561734628033,
+      "base_value": 2.4466751505953193,
+      "bull_value": 3.328993951779654,
+      "upside_to_fair_value": -0.8457329665450618,
+      "methods": {
+        "dcf": 2.4466751505953193,
+        "comparable_companies": null,
+        "growth_adjusted": null,
+        "normalized_multiple": null
+      },
+      "earnings_multiple_status": "not meaningful while trailing earnings are zero or negative",
+      "assumptions": {
+        "forecast_years": 5,
+        "revenue_growth": 0.05,
+        "fcf_margin": 0.02,
+        "wacc": 0.09,
+        "terminal_growth": 0.025
+      },
+      "reverse_dcf": {
+        "implied_revenue_growth": 0.5999999999999999,
+        "interpretation": "The market price implies approximately 60.0% annual revenue growth over the explicit forecast period."
+      },
+      "growth_projection": {
+        "basis": "revenue",
+        "forecast_years": 5,
+        "projections": [
+          {
+            "fiscal_year": 2026,
+            "revenue": 5656350000,
+            "net_income": -3828300000,
+            "growth_rate": 0.05
+          },
+          {
+            "fiscal_year": 2027,
+            "revenue": 5939167500,
+            "net_income": -4019715000,
+            "growth_rate": 0.05
+          },
+          {
+            "fiscal_year": 2028,
+            "revenue": 6236125875,
+            "net_income": -4220700750,
+            "growth_rate": 0.05
+          },
+          {
+            "fiscal_year": 2029,
+            "revenue": 6547932168.75,
+            "net_income": -4431735787.5,
+            "growth_rate": 0.05
+          },
+          {
+            "fiscal_year": 2030,
+            "revenue": 6875328777.1875,
+            "net_income": -4653322576.875,
+            "growth_rate": 0.05
+          }
+        ],
+        "average_annual_growth": 0.05,
+        "current_pe": null,
+        "peg_ratio": null,
+        "target_peg": 1.2,
+        "score": 0,
+        "interpretation": "PEG cannot be calculated because positive projected growth and a positive current P/E are both required."
+      },
+      "methodology": "DCF only. P/E-based methods are not meaningful while trailing earnings are zero or negative."
+    },
+    "buy_target": {
+      "fair_value": 2.4466751505953193,
+      "margin_of_safety": 0.19678068410462776,
+      "buy_target": 1.965216740679379,
+      "current_price_gap": -0.876089738923116,
+      "components": {
+        "base": 0.1,
+        "earnings_and_margin_volatility": 0.08,
+        "balance_sheet_risk": 0,
+        "growth_uncertainty": 0.016780684104627765,
+        "low_risk_credit": 0
+      },
+      "methodology": "Dynamic 8% to 35% margin of safety based on stability, debt, uncertainty and risk score"
+    },
+    "score": {
+      "overall": 21,
+      "rating": "Unattractive",
+      "categories": {
+        "valuation": 0,
+        "quality": 13,
+        "growth": 50,
+        "financial_strength": 50,
+        "capital_allocation": 23,
+        "earnings_quality": 0,
+        "momentum": 51,
+        "risk": 18
+      },
+      "weights": {
+        "valuation": 0.3,
+        "quality": 0.2,
+        "growth": 0.15,
+        "financial_strength": 0.1,
+        "capital_allocation": 0.1,
+        "earnings_quality": 0.05,
+        "momentum": 0.05,
+        "risk": 0.05
+      },
+      "formula": "Weighted arithmetic mean of eight category scores; valuation is the five-year forward PEG score"
+    },
+    "model_versions": {
+      "normalization": "sec-normalizer-1.2",
+      "valuation": "valuation-0.2.2",
+      "score": "score-peg-1.0"
+    }
+  }
+}

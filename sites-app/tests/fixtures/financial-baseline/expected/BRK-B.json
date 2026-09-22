@@ -1,0 +1,164 @@
+{
+  "fixture_version": 1,
+  "ticker": "BRK-B",
+  "captured_at": "2026-08-31T01:41:28.696Z",
+  "absolute_tolerance": 0.000001,
+  "relative_tolerance": 1e-9,
+  "expected_error": {
+    "code": "financial_data_unavailable",
+    "status": 422,
+    "message": "Required financial inputs are unavailable for this company."
+  },
+  "outputs": {
+    "headline": {
+      "score": 34,
+      "rating": "Unattractive",
+      "current_price": 507.97,
+      "fair_value": 366.3354477312786,
+      "buy_target": 336.9935121439033,
+      "bear_value": 122.85397706931789,
+      "base_value": 366.3354477312786,
+      "bull_value": 366.3354477312786,
+      "upside": -0.2788246397793599
+    },
+    "metrics": {
+      "revenue_growth_yoy": -0.009891315665120914,
+      "net_income_growth_yoy": -0.24750828698241478,
+      "eps_growth_yoy": null,
+      "fcf_growth_yoy": 1.1558195592286502,
+      "revenue_cagr": 0.015587750298743375,
+      "net_income_cagr": 0.12038886997253573,
+      "fcf_cagr": 0.027058631286788648,
+      "gross_margin": null,
+      "operating_margin": null,
+      "fcf_margin": 0.10128456100046918,
+      "roic": 0,
+      "roe": 0.09334572962243821,
+      "net_debt": -52569000000,
+      "net_debt_to_fcf": -2.0992332880760323,
+      "fcf_conversion": 0.3739397921395293,
+      "share_change": 0,
+      "buyback_yield": null,
+      "market_cap": 1118732243779,
+      "pe": 16.705474910091386,
+      "price_to_book": 1.5593847441718158,
+      "price_to_fcf": 44.67423703294465,
+      "fcf_yield": 0.022384265886008486,
+      "operating_margin_volatility": 0,
+      "earnings_positive_years": 9,
+      "history_years": 10
+    },
+    "valuation": {
+      "current_price": 507.97,
+      "bear_value": 122.85397706931789,
+      "base_value": 366.3354477312786,
+      "bull_value": 366.3354477312786,
+      "upside_to_fair_value": -0.2788246397793599,
+      "methods": {
+        "dcf": 199.32749936594394,
+        "comparable_companies": 580.7812739366728,
+        "growth_adjusted": 580.7812739366728,
+        "normalized_multiple": 534.318772021739
+      },
+      "earnings_multiple_status": "available",
+      "assumptions": {
+        "forecast_years": 5,
+        "revenue_growth": 0.02,
+        "fcf_margin": 0.10128456100046918,
+        "wacc": 0.09,
+        "terminal_growth": 0.025
+      },
+      "reverse_dcf": {
+        "implied_revenue_growth": 0.27399006363844813,
+        "interpretation": "The market price implies approximately 27.4% annual revenue growth over the explicit forecast period."
+      },
+      "growth_projection": {
+        "basis": "revenue",
+        "forecast_years": 5,
+        "projections": [
+          {
+            "fiscal_year": 2026,
+            "revenue": 252188880000,
+            "net_income": 68307360000,
+            "growth_rate": 0.02
+          },
+          {
+            "fiscal_year": 2027,
+            "revenue": 257232657600,
+            "net_income": 69673507200,
+            "growth_rate": 0.02
+          },
+          {
+            "fiscal_year": 2028,
+            "revenue": 262377310752,
+            "net_income": 71066977344,
+            "growth_rate": 0.02
+          },
+          {
+            "fiscal_year": 2029,
+            "revenue": 267624856967.04,
+            "net_income": 72488316890.88,
+            "growth_rate": 0.02
+          },
+          {
+            "fiscal_year": 2030,
+            "revenue": 272977354106.3808,
+            "net_income": 73938083228.6976,
+            "growth_rate": 0.02
+          }
+        ],
+        "average_annual_growth": 0.02,
+        "current_pe": 16.705474910091386,
+        "peg_ratio": 8.352737455045693,
+        "target_peg": 1.2,
+        "score": 14,
+        "interpretation": "Current P/E of 16.7 divided by 2.0% average projected growth produces a PEG of 8.35. A PEG of 1.2 or lower receives the full valuation score; higher PEG values score proportionally as target PEG divided by actual PEG."
+      },
+      "methodology": "55% DCF, 20% peer P/E, 15% growth-adjusted P/E, 10% normalized P/E"
+    },
+    "buy_target": {
+      "fair_value": 366.3354477312786,
+      "margin_of_safety": 0.08009581319277287,
+      "buy_target": 336.9935121439033,
+      "current_price_gap": -0.336587766710823,
+      "components": {
+        "base": 0.1,
+        "earnings_and_margin_volatility": 0,
+        "balance_sheet_risk": 0,
+        "growth_uncertainty": 0.005095813192772858,
+        "low_risk_credit": -0.025
+      },
+      "methodology": "Dynamic 8% to 35% margin of safety based on stability, debt, uncertainty and risk score"
+    },
+    "score": {
+      "overall": 34,
+      "rating": "Unattractive",
+      "categories": {
+        "valuation": 14,
+        "quality": 15,
+        "growth": 25,
+        "financial_strength": 59,
+        "capital_allocation": 46,
+        "earnings_quality": 95,
+        "momentum": 63,
+        "risk": 95
+      },
+      "weights": {
+        "valuation": 0.3,
+        "quality": 0.2,
+        "growth": 0.15,
+        "financial_strength": 0.1,
+        "capital_allocation": 0.1,
+        "earnings_quality": 0.05,
+        "momentum": 0.05,
+        "risk": 0.05
+      },
+      "formula": "Weighted arithmetic mean of eight category scores; valuation is the five-year forward PEG score"
+    },
+    "model_versions": {
+      "normalization": "sec-normalizer-1.2",
+      "valuation": "valuation-0.2.2",
+      "score": "score-peg-1.0"
+    }
+  }
+}

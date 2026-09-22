@@ -1,0 +1,16 @@
+.env
+*.db
+node_modules/
+.next/
+coverage/
+dist/
+frontend/.env.local
+sites-app/.dev.vars
+sites-app/.sites-runtime/
+work/
+outputs/
+.wrangler/
+*.tsbuildinfo
+
+**/.playwright-cli/
+output/playwright/
