@@ -14,3 +14,8 @@ outputs/
 
 **/.playwright-cli/
 output/playwright/
+
+# Local generated artifacts and legacy cache files
+.vite/
+backend/
+output/
