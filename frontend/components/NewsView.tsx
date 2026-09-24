@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Button } from "./AplexPrimitives";
+import { Button } from "./BullCasePrimitives";
 import Launch from "@carbon/icons-react/es/Launch.js";
 import Renew from "@carbon/icons-react/es/Renew.js";
 import Rss from "@carbon/icons-react/es/Rss.js";

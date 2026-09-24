@@ -11,7 +11,7 @@ import ShieldAlert from "@carbon/icons-react/es/ShieldAlert.js";
 import { analysisSectionPanelState } from "@/lib/analysis-sections";
 import { compactMoney, money, multiple, percent, titleCase } from "@/lib/format";
 import type { Analysis, AnalysisSection, ComparableCompany } from "@/lib/types";
-import { Button, InlineNotification, Tag } from "./AplexPrimitives";
+import { Button, InlineNotification, Tag } from "./BullCasePrimitives";
 import { CompanyLogo } from "./CompanyLogo";
 
 const FinancialChart = lazy(() => import("./FinancialChart").then((module) => ({ default: module.FinancialChart })));
@@ -92,7 +92,7 @@ function OverviewView({ analysis }: { analysis: Analysis }) {
         <aside className="conviction-panel">
           <h3 className="workspace-panel-title">Valuation summary</h3>
           <div className="conviction-heading">
-            <div><span>APLEX SCORE</span><strong>{headline.score}<small>/100</small></strong></div>
+            <div><span>BULLCASE SCORE</span><strong>{headline.score}<small>/100</small></strong></div>
             <Tag type={headline.score >= 70 ? "green" : headline.score >= 50 ? "cool-gray" : "red"}>{headline.rating}</Tag>
           </div>
 
@@ -417,7 +417,7 @@ function PriceRangeView({ analysis }: { analysis: Analysis }) {
                 onChange={(event) => setUserDiscount(Number(event.target.value))}
               />
               <div className="price-entry-scale"><span>0%</span><span>20%</span><span>40%</span></div>
-              <p>This threshold comes only from your selected discount. It is not an Aplex recommendation.</p>
+              <p>This threshold comes only from your selected discount. It is not an BullCase recommendation.</p>
             </div>
           </section>
         </div>
@@ -714,12 +714,12 @@ function RisksView({ analysis, onRetry }: { analysis: Analysis; onRetry: () => v
               </article>
             ))}
           </div>
-          <footer className="risk-method-note"><Information size={16} /><p>AplexAnalysis groups related filing statements into themes and keeps an evidence excerpt for review. Summaries are research aids, not a replacement for reading the full filing.</p></footer>
+          <footer className="risk-method-note"><Information size={16} /><p>BullCase groups related filing statements into themes and keeps an evidence excerpt for review. Summaries are research aids, not a replacement for reading the full filing.</p></footer>
         </section>
       ) : (
         <section className="risk-fallback" aria-labelledby="risk-fallback-heading">
           <header><span className="risk-kicker">SOURCE ERROR</span><h2 id="risk-fallback-heading">Risk disclosures unavailable</h2><p>The latest annual filing risk section could not be loaded or summarized. No substitute risk data has been generated.</p></header>
-          <InlineNotification kind="error" lowContrast title="Could not load filing risks" subtitle="Try the SEC source again. AplexAnalysis will not replace missing filing disclosures with modeled risks." hideCloseButton />
+          <InlineNotification kind="error" lowContrast title="Could not load filing risks" subtitle="Try the SEC source again. BullCase will not replace missing filing disclosures with modeled risks." hideCloseButton />
           <Button kind="tertiary" renderIcon={Renew} onClick={onRetry}>Retry filing risks</Button>
         </section>
       )}

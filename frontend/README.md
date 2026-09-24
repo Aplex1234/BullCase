@@ -1,4 +1,4 @@
-# Shared AplexAnalysis interface
+# Shared BullCase interface
 
 This directory contains the React interface and browser-side financial utilities used by the production application in `../sites-app/`.
 

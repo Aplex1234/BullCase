@@ -1,6 +1,6 @@
-# AplexAnalysis production application
+# BullCase production application
 
-This directory is the canonical full-stack AplexAnalysis application deployed through OpenAI Sites.
+This directory is the canonical full-stack BullCase application deployed through OpenAI Sites.
 
 The repository-level [`architecture and operations guide`](../docs/architecture-and-operations.md) is the detailed source of truth for runtime behavior, providers, persistence, caching, environment variables, rate limits, testing, deployment, and known limitations.
 

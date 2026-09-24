@@ -311,7 +311,7 @@ async function fetchAndStorePeers(
     },
   );
   const stored = await persistPeerResult(
-    () => writeComponentCache(ticker, financials.profile, "comps", peerSet, COMPONENT_SOURCE_VERSIONS.comps, CACHE_TTLS.comps, "AplexAnalysis comps engine", refreshStartedAt),
+    () => writeComponentCache(ticker, financials.profile, "comps", peerSet, COMPONENT_SOURCE_VERSIONS.comps, CACHE_TTLS.comps, "BullCase comps engine", refreshStartedAt),
     () => writePeerSelectionAudit(ticker, financials.profile, peerSet),
   );
   return { data: peerSet, freshness: freshness("live", stored?.fetchedAt ?? new Date().toISOString(), stored?.freshUntil ?? null, peerSet.methodology) };
@@ -373,7 +373,7 @@ function attachFreshness(
       news: items.news,
       risks: items.risks,
       summary: freshness(
-        analysis.company.description_source === "AplexAnalysis summary" ? "cached" : "live",
+        analysis.company.description_source === "BullCase summary" ? "cached" : "live",
         null,
         null,
         analysis.company.description_source,

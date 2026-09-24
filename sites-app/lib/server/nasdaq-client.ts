@@ -3,7 +3,7 @@ import { requestProviderJson } from "./provider-http.ts";
 const NASDAQ_API_BASE = "https://api.nasdaq.com/api";
 
 const NASDAQ_HEADERS: HeadersInit = {
-  "User-Agent": "Mozilla/5.0 (compatible; AplexAnalysis/0.1; financial research)",
+  "User-Agent": "Mozilla/5.0 (compatible; BullCase/0.1; financial research)",
   Accept: "application/json, text/plain, */*",
   Origin: "https://www.nasdaq.com",
   Referer: "https://www.nasdaq.com/",

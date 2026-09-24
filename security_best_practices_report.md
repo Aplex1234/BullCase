@@ -1,4 +1,4 @@
-# AplexAnalysis security and quality audit
+# BullCase security and quality audit
 
 Audited: 2026-08-29
 Scope: the ChatGPT Sites application, shared frontend, standalone development API, Git-tracked configuration, and the current public deployment.
@@ -24,7 +24,7 @@ Phase 4 note: the standalone Python development API referenced in this historica
 15. **PASS - CORS.** At the time of this audit, the standalone FastAPI app had an explicit origin allowlist. That legacy app has since been removed; the deployed Sites API is same-origin.
 16. **PASS - HTTPS.** The public ChatGPT Sites deployment redirects and serves over HTTPS.
 17. **PASS - Security headers.** Worker responses now include CSP frame/base/object/form restrictions, `nosniff`, a strict referrer policy, and a restrictive permissions policy (`sites-app/worker/index.ts`). TLS/HSTS remains platform-managed.
-18. **NOT APPLICABLE - Cookies.** AplexAnalysis creates no session cookie. The observed Cloudflare bot-management cookie was Secure and HttpOnly.
+18. **NOT APPLICABLE - Cookies.** BullCase creates no session cookie. The observed Cloudflare bot-management cookie was Secure and HttpOnly.
 19. **PASS - Debug mode.** The production build contains no enabled application debug mode. Vinext's local-only debug page is not a production route.
 20. **PASS - Production settings.** Internal cache monitoring is hidden, errors sent to users are bounded, production uses HTTPS, and no development credential is bundled.
 21. **NOT APPLICABLE - Brute force.** There are no login, signup, reset, or OTP endpoints.
@@ -37,7 +37,7 @@ Phase 4 note: the standalone Python development API referenced in this historica
 2. **PASS - Broken links.** Internal navigation and primary source links were exercised. External links use current provider URLs; third-party availability can still change independently.
 3. **PASS - Mobile menu.** The full research navigation becomes a horizontally scrollable mobile bar with the visible hint, “Swipe sideways for more sections.” A hamburger is unnecessary for this terminal layout.
 4. **PASS - Favicon.** `/favicon.svg` is configured in `sites-app/app/layout.tsx`.
-5. **PASS - Page title.** The title is `AplexAnalysis | Equity Research Terminal`.
+5. **PASS - Page title.** The title is `BullCase | Equity Research Terminal`.
 6. **PASS - Meta description.** A descriptive search/social summary is configured in `sites-app/app/layout.tsx`.
 7. **NOT APPLICABLE - Footer links.** The application-shell design intentionally has no footer.
 8. **PASS - Custom 404.** Added a branded, responsive recovery page at `sites-app/app/not-found.tsx`.
@@ -49,7 +49,7 @@ Phase 4 note: the standalone Python development API referenced in this historica
 14. **PASS - Placeholder text.** No unfinished placeholder copy is presented as a finished feature. AI Research is clearly labelled Preview.
 15. **PASS - Unused navigation.** All main navigation targets render a page; preview functionality is explicitly labelled.
 16. **PASS - Mobile overflow.** No page-level overflow was found at 390 x 844. Wide charts/tables use controlled responsive containers.
-17. **PASS - Clickable logo.** The AplexAnalysis brand is now a keyboard-accessible button that returns to the Apple overview (`frontend/components/ResearchTerminal.tsx`).
+17. **PASS - Clickable logo.** The BullCase brand is now a keyboard-accessible button that returns to the Apple overview (`frontend/components/ResearchTerminal.tsx`).
 18. **NOT APPLICABLE - Phone links.** No phone numbers are displayed.
 19. **NOT APPLICABLE - Email links.** No email addresses are displayed.
 20. **PASS - Mobile optimization.** Touch targets, stacked header, scroll hints, responsive charts, and mobile-contained navigation were verified in a real browser.

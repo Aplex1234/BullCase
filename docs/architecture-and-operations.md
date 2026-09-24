@@ -1,4 +1,4 @@
-# AplexAnalysis architecture and operations
+# BullCase architecture and operations
 
 This document describes the current production application. `sites-app/` is the deployment target; `frontend/` is shared source plus an isolated interface validation harness.
 
@@ -166,4 +166,4 @@ When the hosting platform invokes the scheduled Worker handler, it refreshes due
 - Bundled full financial fallbacks exist only for AAPL, NVDA, and COST and are intentionally dated.
 - The AI Research page is a disabled preview. No LLM provider or filing citation index is configured.
 - D1 outages reduce persistent caching and cross-instance traffic coordination even though stale or isolate-local fallbacks may keep some requests available.
-- AplexAnalysis is an educational research tool, not investment advice. Source filings and model assumptions still require human review.
+- BullCase is an educational research tool, not investment advice. Source filings and model assumptions still require human review.

@@ -1,4 +1,4 @@
-# AplexAnalysis consolidated refactor report, Phases 0-9
+# BullCase consolidated refactor report, Phases 0-9
 
 Final validation date: 2026-09-01  
 Working branch: `refactor/phase-0-1-baseline-lazy-warm`  
@@ -183,7 +183,7 @@ Phase 3 reduced work for already-cached requests and verified that API cache hea
 | Edge miss with D1 analysis hit | One abuse write, one analysis read, about 1/64 telemetry write, plus gated activity |
 | Edge hit for a section or price history | Zero reads and writes; provider and component-cache paths are skipped |
 
-The edge cache exposes `X-Aplex-Edge-Cache: HIT`, `MISS`, or `BYPASS` and uses edge-specific server timing.
+The edge cache exposes `X-BullCase-Edge-Cache: HIT`, `MISS`, or `BYPASS` and uses edge-specific server timing.
 
 Database change: migration `0009_stormy_cargill.sql` adds `cache_events.sample_weight`.
 

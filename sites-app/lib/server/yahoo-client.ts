@@ -2,7 +2,7 @@ import { requestProviderJson } from "./provider-http.ts";
 
 const YAHOO_API_BASE = "https://query1.finance.yahoo.com";
 const YAHOO_HEADERS: HeadersInit = {
-  "User-Agent": "Mozilla/5.0 (compatible; AplexAnalysis/0.1; financial research)",
+  "User-Agent": "Mozilla/5.0 (compatible; BullCase/0.1; financial research)",
   Accept: "application/json, text/plain, */*",
 };
 

@@ -66,8 +66,8 @@ export function TerminalHeader({
 
   return (
     <header className="topbar">
-      <button type="button" className="brand-lockup" aria-label="Go to AplexAnalysis overview" onClick={handleLogoClick}>
-        <span className="brand-name"><strong>Aplex</strong>Analysis</span>
+      <button type="button" className="brand-lockup" aria-label="Go to BullCase overview" onClick={handleLogoClick}>
+        <span className="brand-name"><strong>Bull</strong>Case</span>
       </button>
       <CompanySearch search={search} />
       <div className="topbar-status">

@@ -6,7 +6,7 @@ const SEC_WWW_BASE = "https://www.sec.gov";
 
 function secHeaders(accept: string): HeadersInit {
   return {
-    "User-Agent": process.env.SEC_USER_AGENT ?? "AplexAnalysis/0.1 (contact not configured)",
+    "User-Agent": process.env.SEC_USER_AGENT ?? "BullCase/0.1 (contact not configured)",
     Accept: accept,
   };
 }

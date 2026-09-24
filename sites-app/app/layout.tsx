@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./carbon.scss";
 import "./globals.css";
 
-const title = "AplexAnalysis | Equity Research Terminal";
+const title = "BullCase | Equity Research Terminal";
 const description =
   "Search SEC-reporting companies and explore revenue, earnings, margins, cash flow, balance sheets and valuation.";
 

@@ -17,7 +17,7 @@ export function createFederalReserveClient(fetchText = requestProviderText, now 
       if (running) return running;
       const request = Promise.resolve().then(() => fetchText({
         provider: "Federal Reserve", operation: `policy_${kind}`, url: FEEDS[kind],
-        headers: { Accept: "application/rss+xml, text/xml", "User-Agent": "AplexAnalysis/0.2" },
+        headers: { Accept: "application/rss+xml, text/xml", "User-Agent": "BullCase/0.2" },
         timeoutMs: 5_000, retries: 0,
       })).then((xml) => {
         if (xml.length > 500_000 || !/<rss\b/i.test(xml) || !/<channel\b/i.test(xml)) throw new Error("Federal Reserve returned an invalid feed");

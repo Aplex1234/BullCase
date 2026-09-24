@@ -184,31 +184,31 @@ export function FinancialExplorer({
           >
             <ResponsiveContainer width="100%" height={410}>
               <ComposedChart data={data} margin={{ top: 24, right: 22, bottom: 12, left: 8 }}>
-                <CartesianGrid stroke="var(--aplex-grid)" vertical={false} />
+                <CartesianGrid stroke="var(--bullcase-grid)" vertical={false} />
                 <XAxis
                   dataKey="label"
                   tickLine={false}
-                  axisLine={{ stroke: "var(--aplex-line-strong)" }}
-                  tick={{ fill: "var(--aplex-muted)", fontSize: 12 }}
+                  axisLine={{ stroke: "var(--bullcase-line-strong)" }}
+                  tick={{ fill: "var(--bullcase-muted)", fontSize: 12 }}
                   tickMargin={10}
                 />
                 <YAxis
                   tickFormatter={(value) => chartIsGrowth ? formatGrowthChartValue(value, group.unit) : formatChartValue(value, group.unit, scale.unit)}
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fill: "var(--aplex-muted)", fontSize: 12 }}
+                  tick={{ fill: "var(--bullcase-muted)", fontSize: 12 }}
                   tickMargin={8}
                   width={76}
                 />
-                <ReferenceLine y={0} stroke="var(--aplex-line-strong)" />
+                <ReferenceLine y={0} stroke="var(--bullcase-line-strong)" />
                 <Tooltip
-                  cursor={{ fill: "var(--aplex-hover)" }}
+                  cursor={{ fill: "var(--bullcase-hover)" }}
                   contentStyle={{
-                    background: "var(--aplex-panel)",
-                    border: "1px solid var(--aplex-line-strong)",
+                    background: "var(--bullcase-panel)",
+                    border: "1px solid var(--bullcase-line-strong)",
                     borderRadius: 10,
-                    boxShadow: "var(--aplex-shadow)",
-                    color: "var(--aplex-ink)",
+                    boxShadow: "var(--bullcase-shadow)",
+                    color: "var(--bullcase-ink)",
                   }}
                   formatter={(value) => chartIsGrowth ? formatGrowthChartValue(value as number | string, group.unit) : formatChartValue(value as number | string, group.unit, scale.unit)}
                 />
@@ -233,7 +233,7 @@ export function FinancialExplorer({
                       name={chartIsGrowth ? `${series.label} ${chartMode === "yoy" ? "YoY" : "QoQ"}` : series.label}
                       stroke={series.color}
                       strokeWidth={2.25}
-                      dot={{ r: 3, fill: "var(--aplex-panel)", strokeWidth: 2 }}
+                      dot={{ r: 3, fill: "var(--bullcase-panel)", strokeWidth: 2 }}
                       activeDot={{ r: 5 }}
                       connectNulls={false}
                       isAnimationActive={false}

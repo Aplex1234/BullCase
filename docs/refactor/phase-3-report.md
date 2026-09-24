@@ -72,7 +72,7 @@ Only `200` public responses without `Set-Cookie` are stored. Routes mark stale a
 
 A successful forced-refresh POST remains `no-store` and purges the full-analysis plus ten section/Overview variants from the current Cloudflare location. Cache failures fail open to the application and are logged.
 
-Edge responses expose `X-Aplex-Edge-Cache: HIT`, `MISS`, or `BYPASS`. Edge hits replace application timing with `Server-Timing: edge-cache;desc=HIT`. Matching ETags return `304` directly from the edge-cache lookup.
+Edge responses expose `X-BullCase-Edge-Cache: HIT`, `MISS`, or `BYPASS`. Edge hits replace application timing with `Server-Timing: edge-cache;desc=HIT`. Matching ETags return `304` directly from the edge-cache lookup.
 
 The Cache API test exercised the compiled Worker: the first price-history request was `MISS`, the second was `HIT`, one provider request occurred, and a matching ETag returned an edge `304`.
 

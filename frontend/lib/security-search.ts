@@ -1,6 +1,6 @@
 import type { SecuritySearchResult } from "./types";
 
-export const RECENT_SECURITIES_KEY = "aplex-recent-securities";
+export const RECENT_SECURITIES_KEY = "bullcase-recent-securities";
 export const RECENT_SECURITIES_LIMIT = 5;
 
 type RecentStorage = Pick<Storage, "getItem" | "setItem">;

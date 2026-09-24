@@ -99,10 +99,10 @@ test("SEC pacing reserves no more than eight starts per second", () => {
 
 test("the Worker overwrites an untrusted client identity header", async () => {
   const request = new Request("https://example.test/api/v1/search", {
-    headers: { "x-aplex-edge-client-key": "spoofed", "cf-connecting-ip": "203.0.113.10" },
+    headers: { "x-bullcase-edge-client-key": "spoofed", "cf-connecting-ip": "203.0.113.10" },
   });
   const stamped = await stampTrustedClientIdentity(request);
-  assert.equal(stamped.headers.get("x-aplex-edge-client-key"), "local-development");
+  assert.equal(stamped.headers.get("x-bullcase-edge-client-key"), "local-development");
 });
 
 test("signed-in users on the same network receive separate rate-limit identities", async () => {
@@ -117,8 +117,8 @@ test("signed-in users on the same network receive separate rate-limit identities
     Object.defineProperty(request, "cf", { value: {} });
     return request;
   };
-  const first = (await stampTrustedClientIdentity(requestFor("first-user"))).headers.get("x-aplex-edge-client-key");
-  const second = (await stampTrustedClientIdentity(requestFor("second-user"))).headers.get("x-aplex-edge-client-key");
+  const first = (await stampTrustedClientIdentity(requestFor("first-user"))).headers.get("x-bullcase-edge-client-key");
+  const second = (await stampTrustedClientIdentity(requestFor("second-user"))).headers.get("x-bullcase-edge-client-key");
   assert.ok(first && second);
   assert.notEqual(first, second);
   assert.notEqual(first, "first-user");

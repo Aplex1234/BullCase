@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Button, InlineNotification } from "./AplexPrimitives";
+import { Button, InlineNotification } from "./BullCasePrimitives";
 import Renew from "@carbon/icons-react/es/Renew.js";
 import {
   CartesianGrid,
@@ -45,7 +45,7 @@ const HISTORY_METRICS: Array<{ key: HistoryMetric; label: string }> = [
   { key: "margins", label: "Margins" },
 ];
 
-const STORAGE_PREFIX = "aplex:multiple-valuation:v1";
+const STORAGE_PREFIX = "bullcase:multiple-valuation:v1";
 
 function finite(value: number | null | undefined) {
   return value != null && Number.isFinite(value) ? value : null;
@@ -333,13 +333,13 @@ export function MultipleValuationView({ analysis }: { analysis: Analysis }) {
           <div className="valuation-projection-chart" role="img" aria-label={`${settings.forecastYears}-year ${settings.basis === "net_income" ? "net income" : "EPS"} projection`}>
             <ResponsiveContainer width="100%" height={318}>
               <LineChart data={projectionData} margin={{ top: 18, right: 16, bottom: 0, left: 6 }}>
-                <CartesianGrid stroke="var(--aplex-grid)" vertical={false} />
-                <XAxis dataKey="year" tickLine={false} axisLine={{ stroke: "var(--aplex-line-strong)" }} />
+                <CartesianGrid stroke="var(--bullcase-grid)" vertical={false} />
+                <XAxis dataKey="year" tickLine={false} axisLine={{ stroke: "var(--bullcase-line-strong)" }} />
                 <YAxis tickFormatter={(value) => settings.basis === "eps" ? `$${Number(value).toFixed(0)}` : compactMoney(Number(value))} tickLine={false} axisLine={false} width={72} />
-                <Tooltip contentStyle={{ background: "var(--aplex-panel)", border: "1px solid var(--aplex-line-strong)", borderRadius: 10, color: "var(--aplex-ink)" }} formatter={(value) => settings.basis === "eps" ? money(Number(value)) : compactMoney(Number(value))} />
-                <Line dataKey="bear" name="Bear" stroke="var(--aplex-negative)" strokeWidth={1.75} dot={false} isAnimationActive={false} />
-                <Line dataKey="base" name="Base" stroke="var(--aplex-blue)" strokeWidth={2.5} dot={{ r: 2.5 }} isAnimationActive={false} />
-                <Line dataKey="bull" name="Bull" stroke="var(--aplex-positive)" strokeWidth={1.75} dot={false} isAnimationActive={false} />
+                <Tooltip contentStyle={{ background: "var(--bullcase-panel)", border: "1px solid var(--bullcase-line-strong)", borderRadius: 10, color: "var(--bullcase-ink)" }} formatter={(value) => settings.basis === "eps" ? money(Number(value)) : compactMoney(Number(value))} />
+                <Line dataKey="bear" name="Bear" stroke="var(--bullcase-negative)" strokeWidth={1.75} dot={false} isAnimationActive={false} />
+                <Line dataKey="base" name="Base" stroke="var(--bullcase-blue)" strokeWidth={2.5} dot={{ r: 2.5 }} isAnimationActive={false} />
+                <Line dataKey="bull" name="Bull" stroke="var(--bullcase-positive)" strokeWidth={1.75} dot={false} isAnimationActive={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -385,18 +385,18 @@ export function MultipleValuationView({ analysis }: { analysis: Analysis }) {
         <div className="valuation-history-chart" role="img" aria-label={`${frequency} ${HISTORY_METRICS.find((item) => item.key === historyMetric)?.label} history`}>
           <ResponsiveContainer width="100%" height={340}>
             <LineChart data={historyData} margin={{ top: 20, right: 18, bottom: 4, left: 6 }}>
-              <CartesianGrid stroke="var(--aplex-grid)" vertical={false} />
-              <XAxis dataKey="label" tickLine={false} axisLine={{ stroke: "var(--aplex-line-strong)" }} minTickGap={22} />
+              <CartesianGrid stroke="var(--bullcase-grid)" vertical={false} />
+              <XAxis dataKey="label" tickLine={false} axisLine={{ stroke: "var(--bullcase-line-strong)" }} minTickGap={22} />
               <YAxis tickFormatter={(value) => chartFormat(value, historyMetric)} tickLine={false} axisLine={false} width={76} />
-              <ReferenceLine y={0} stroke="var(--aplex-line-strong)" />
-              <Tooltip contentStyle={{ background: "var(--aplex-panel)", border: "1px solid var(--aplex-line-strong)", borderRadius: 10, color: "var(--aplex-ink)" }} formatter={(value) => chartFormat(value as number | string, historyMetric)} />
+              <ReferenceLine y={0} stroke="var(--bullcase-line-strong)" />
+              <Tooltip contentStyle={{ background: "var(--bullcase-panel)", border: "1px solid var(--bullcase-line-strong)", borderRadius: 10, color: "var(--bullcase-ink)" }} formatter={(value) => chartFormat(value as number | string, historyMetric)} />
               {historyMetric === "margins" ? (
                 <>
                   <Line dataKey="gross" name="Gross margin" stroke="var(--chart-2)" strokeWidth={2} dot={false} connectNulls={false} isAnimationActive={false} />
                   <Line dataKey="operating" name="Operating margin" stroke="var(--chart-3)" strokeWidth={2} dot={false} connectNulls={false} isAnimationActive={false} />
                   <Line dataKey="net" name="Net margin" stroke="var(--chart-4)" strokeWidth={2} dot={false} connectNulls={false} isAnimationActive={false} />
                 </>
-              ) : <Line dataKey="value" name={HISTORY_METRICS.find((item) => item.key === historyMetric)?.label} stroke="var(--aplex-blue)" strokeWidth={2.25} dot={{ r: 3, fill: "var(--aplex-panel)" }} connectNulls={false} isAnimationActive={false} />}
+              ) : <Line dataKey="value" name={HISTORY_METRICS.find((item) => item.key === historyMetric)?.label} stroke="var(--bullcase-blue)" strokeWidth={2.25} dot={{ r: 3, fill: "var(--bullcase-panel)" }} connectNulls={false} isAnimationActive={false} />}
             </LineChart>
           </ResponsiveContainer>
         </div>

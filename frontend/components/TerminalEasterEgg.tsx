@@ -85,7 +85,7 @@ function MarketParty() {
   return <div className="ee-party">
     <div className="ee-beams"><i /><i /><i /></div>
     <div className="ee-party-orbits"><i /><i /><i /></div>
-    <div className="ee-party-heading"><span>APLEXANALYSIS / AFTER HOURS</span><h2>MARKET<br /><em>PARTY.</em></h2><p>For once, everybody wins.</p></div>
+    <div className="ee-party-heading"><span>BULLCASE / AFTER HOURS</span><h2>MARKET<br /><em>PARTY.</em></h2><p>For once, everybody wins.</p></div>
     <div className="ee-mascots">
       <div className="ee-mascot ee-mascot-bull"><div><img src={`${ASSETS}bull.svg`} alt="" /></div><span>BULLS</span></div>
       <div className="ee-mascot ee-mascot-bear"><div><img src={`${ASSETS}bear.svg`} alt="" /></div><span>BEARS</span></div>

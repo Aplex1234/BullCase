@@ -6,7 +6,7 @@ import "./analyst-workspace.css";
 import "./research-chat.css";
 
 export const metadata: Metadata = {
-  title: "AplexAnalysis | Equity Research Terminal",
+  title: "BullCase | Equity Research Terminal",
   description: "Transparent financial analysis, valuation and risk scoring grounded in public filings.",
 };
 

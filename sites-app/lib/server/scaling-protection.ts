@@ -16,7 +16,7 @@ const BUILD_LEASE_MS = 90_000;
 const SEC_BUDGET_PER_SECOND = 8;
 const SEC_BUDGET_WAIT_MS = 12_000;
 const SEC_REQUEST_INTERVAL_MS = Math.ceil(1_000 / SEC_BUDGET_PER_SECOND);
-const TRUSTED_CLIENT_KEY_HEADER = "x-aplex-edge-client-key";
+const TRUSTED_CLIENT_KEY_HEADER = "x-bullcase-edge-client-key";
 const localCounters = new MemoryFixedWindowCounter();
 let localSecNextAvailableAt = 0;
 let cleanupSequence = 0;
@@ -105,7 +105,7 @@ async function authenticatedIdentity(request: Request) {
 }
 
 function userIdentity(userId: string) {
-  return sha256(`aplexanalysis-user:${userId}`);
+  return sha256(`bullcase-user:${userId}`);
 }
 
 async function requestIdentity(request: Request) {
@@ -115,7 +115,7 @@ async function requestIdentity(request: Request) {
   if (user) return user;
   const cloudflareRequest = request as Request & { cf?: unknown };
   const cloudflareIp = cloudflareRequest.cf ? request.headers.get("cf-connecting-ip") : null;
-  if (cloudflareIp) return sha256(`aplexanalysis-edge-ip:${cloudflareIp}`);
+  if (cloudflareIp) return sha256(`bullcase-edge-ip:${cloudflareIp}`);
   return "local-development";
 }
 
@@ -125,7 +125,7 @@ export async function stampTrustedClientIdentity(request: Request) {
   const cloudflareRequest = request as Request & { cf?: unknown };
   const cloudflareIp = cloudflareRequest.cf ? request.headers.get("cf-connecting-ip") : null;
   const identity = await authenticatedIdentity(request) ?? (cloudflareIp
-    ? await sha256(`aplexanalysis-edge-ip:${cloudflareIp}`)
+    ? await sha256(`bullcase-edge-ip:${cloudflareIp}`)
     : "local-development");
   headers.set(TRUSTED_CLIENT_KEY_HEADER, identity);
   return new Request(request, { headers });

@@ -8,7 +8,7 @@ import { useSecuritySearch } from "@/hooks/useSecuritySearch";
 import { useTerminalTheme } from "@/hooks/useTerminalTheme";
 import type { Analysis, AnalysisSection } from "@/lib/types";
 import type { AccountIdentity } from "../lib/account";
-import { Button, InlineNotification, SkeletonText, Theme } from "./AplexPrimitives";
+import { Button, InlineNotification, SkeletonText, Theme } from "./BullCasePrimitives";
 import { CompanyHeader } from "./CompanyHeader";
 import { ResearchPages } from "./ResearchPages";
 import { TerminalHeader } from "./TerminalHeader";

@@ -13,5 +13,5 @@ test("saving a theme tolerates full storage and preserves valid preferences", ()
   assert.doesNotThrow(() => theme.persistTheme("light", () => ({ setItem: () => { throw new Error("QuotaExceededError"); } })));
   let stored;
   theme.persistTheme("light", () => ({ setItem: (key, value) => { stored = [key, value]; } }));
-  assert.deepEqual(stored, ["aplex-theme-premium", "light"]);
+  assert.deepEqual(stored, ["bullcase-theme-premium", "light"]);
 });

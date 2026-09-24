@@ -328,7 +328,7 @@ export async function fetchComparableCompanies(
     companies,
     methodology: companies.length
       ? `Industry-first peer selection with a minimum relevance score of ${minimumDisplayScore}. A broader classification shortlist is verified against company products, customers and business models before up to eight peers are shown. Metrics are recalculated from current SEC annual facts and delayed Nasdaq prices.`
-      : `No peers met the minimum relevance score of ${minimumDisplayScore}. AplexAnalysis leaves the set empty instead of showing companies with weak product, customer, or business-model overlap.`,
+      : `No peers met the minimum relevance score of ${minimumDisplayScore}. BullCase leaves the set empty instead of showing companies with weak product, customer, or business-model overlap.`,
     source_provider: candidateSet.sourceProvider,
     source_url: candidateSet.sourceUrl,
     source_as_of: candidateSet.sourceAsOf,

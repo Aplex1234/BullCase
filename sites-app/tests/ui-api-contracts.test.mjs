@@ -84,15 +84,15 @@ test("labels AI Research and separates filing date concepts", async () => {
   assert.match(component, />Filing date</);
 });
 
-test("server-renders the AplexAnalysis terminal", async () => {
+test("server-renders the BullCase terminal", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("cache-control") ?? "", /s-maxage=60/);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>AplexAnalysis \| Equity Research Terminal<\/title>/i);
-  assert.match(html, /AplexAnalysis/);
+  assert.match(html, /<title>BullCase \| Equity Research Terminal<\/title>/i);
+  assert.match(html, /BullCase/);
   assert.match(html, /Ticker or company/);
   assert.match(html, /Research software\. Not investment advice\./);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
@@ -126,7 +126,7 @@ test("account panel supports sign-in, encrypted provider setup, favorites, and a
   assert.match(favoriteButton, /FavoriteFilled/);
   assert.match(favoriteButton, /aria-pressed=\{favorite\}/);
   assert.match(favoriteButton, /Favorited companies are saved in Profile\./);
-  assert.match(favoriteButton, /aplex:favorites-profile-tip/);
+  assert.match(favoriteButton, /bullcase:favorites-profile-tip/);
   assert.match(accountRoute, /Cross-origin account changes are not allowed/);
   assert.match(favoriteRoute, /Cross-origin account changes are not allowed/);
   assert.match(favoriteRoute, /readBoundedJson\(request, 2048\)/);
@@ -140,7 +140,7 @@ test("account panel supports sign-in, encrypted provider setup, favorites, and a
 
 test("keeps the quote concise and lets users dismiss source warnings", async () => {
   const terminal = await readFile(new URL("../../frontend/components/ResearchTerminal.tsx", import.meta.url), "utf8");
-  const notification = await readFile(new URL("../../frontend/components/AplexPrimitives.tsx", import.meta.url), "utf8");
+  const notification = await readFile(new URL("../../frontend/components/BullCasePrimitives.tsx", import.meta.url), "utf8");
   const companyHeader = await readFile(new URL("../../frontend/components/CompanyHeader.tsx", import.meta.url), "utf8");
   const terminalHeader = await readFile(new URL("../../frontend/components/TerminalHeader.tsx", import.meta.url), "utf8");
   assert.doesNotMatch(terminalHeader, /Coverage|SEC \+ public news/);
@@ -356,7 +356,7 @@ test("keeps server and browser freshness labels deterministic and the brand link
   const easterEgg = await readFile(new URL("../../frontend/components/TerminalEasterEgg.tsx", import.meta.url), "utf8");
   const notFound = await readFile(new URL("../app/not-found.tsx", import.meta.url), "utf8");
   assert.match(component, /timeZone: "UTC"/);
-  assert.match(component, /aria-label="Go to AplexAnalysis overview"/);
+  assert.match(component, /aria-label="Go to BullCase overview"/);
   assert.match(component, /onHome=\{\(\) => openCompanyProfile\("AAPL"\)\}/);
   assert.match(header, /logoClicks\.current >= 5/);
   assert.match(header, /onEasterEgg\("market"\)/);
@@ -418,9 +418,9 @@ test("keeps quote attribution clickable and Price Range navigation connected", a
   assert.match(component, /key: "buyTarget", label: "Price Range"/);
   assert.match(component, /Model estimates, not a target/);
   assert.match(component, /type="range"/);
-  assert.match(component, /It is not an Aplex recommendation/);
+  assert.match(component, /It is not an BullCase recommendation/);
   assert.match(component, /price-range-detail-sheet/);
-  assert.doesNotMatch(component, /APLEX BUY TARGET|SAFETY FACTOR|label="Buy target"/);
+  assert.doesNotMatch(component, /BULLCASE BUY TARGET|SAFETY FACTOR|label="Buy target"/);
   assert.doesNotMatch(component, /price-range-sources|>Data used</);
   assert.match(component, /Timestamp not supplied/);
 });

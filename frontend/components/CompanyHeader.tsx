@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import type { RefreshStatus } from "@/hooks/useCompanyAnalysis";
 import { compactMoney, money, multiple } from "@/lib/format";
 import type { Analysis } from "@/lib/types";
-import { Tag } from "./AplexPrimitives";
+import { Tag } from "./BullCasePrimitives";
 import { CompanyLogo } from "./CompanyLogo";
 
 function freshnessTime(value: string | null | undefined, dateOnly = false) {

@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 import type { AccountIdentity, AccountSnapshot } from "../lib/account";
 
-const FAVORITES_TIP_KEY = "aplex:favorites-profile-tip";
+const FAVORITES_TIP_KEY = "bullcase:favorites-profile-tip";
 
 export function FavoriteButton({ ticker, account }: { ticker: string; account: AccountIdentity | null }) {
   const [favorite, setFavorite] = useState(false);

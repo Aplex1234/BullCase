@@ -183,23 +183,23 @@ export function StockPriceChart({ ticker }: { ticker: string }) {
           <div className="market-chart-canvas" role="img" aria-label={`${ticker} price chart for the selected ${range} range${range === "1d" ? ", including extended hours" : ""}`}>
             <ResponsiveContainer width="100%" height={340}>
               <ComposedChart data={chartPoints} margin={{ top: 18, right: 16, bottom: 2, left: 0 }}>
-                <CartesianGrid stroke="var(--aplex-grid)" vertical={false} />
-                <XAxis dataKey="date" minTickGap={56} tickLine={false} axisLine={{ stroke: "var(--aplex-line-strong)" }} tickFormatter={(value) => axisDate(String(value))} />
+                <CartesianGrid stroke="var(--bullcase-grid)" vertical={false} />
+                <XAxis dataKey="date" minTickGap={56} tickLine={false} axisLine={{ stroke: "var(--bullcase-line-strong)" }} tickFormatter={(value) => axisDate(String(value))} />
                 <YAxis yAxisId="price" domain={["auto", "auto"]} tickLine={false} axisLine={false} width={70} tickFormatter={(value) => money(Number(value), 0)} />
                 <YAxis yAxisId="volume" hide domain={[0, (dataMax: number) => dataMax * 5]} />
                 <Tooltip
                   labelFormatter={(value) => range === "1d" ? readableIntradayTime(String(value)) : readableDate(String(value))}
                   formatter={(value, name) => name === "Volume" ? [compactNumber(Number(value)), "Volume"] : [money(Number(value)), String(name)]}
-                  contentStyle={{ borderRadius: 10, border: "1px solid var(--aplex-line-strong)", boxShadow: "var(--aplex-shadow)", background: "var(--aplex-panel)", color: "var(--aplex-ink)" }}
+                  contentStyle={{ borderRadius: 10, border: "1px solid var(--bullcase-line-strong)", boxShadow: "var(--bullcase-shadow)", background: "var(--bullcase-panel)", color: "var(--bullcase-ink)" }}
                 />
-                <Bar yAxisId="volume" dataKey="volume" name="Volume" fill="var(--aplex-muted)" opacity={0.16} isAnimationActive={false} />
+                <Bar yAxisId="volume" dataKey="volume" name="Volume" fill="var(--bullcase-muted)" opacity={0.16} isAnimationActive={false} />
                 {range === "1d" ? (
                   <>
-                    <Area yAxisId="price" type="monotone" dataKey="regularClose" name="Regular session" stroke={positive ? "var(--aplex-positive)" : "var(--aplex-negative)"} fill={positive ? "var(--aplex-positive)" : "var(--aplex-negative)"} fillOpacity={0.08} strokeWidth={2.4} dot={false} activeDot={{ r: 4 }} isAnimationActive={false} />
-                    <Area yAxisId="price" type="monotone" dataKey="extendedClose" name="Extended hours" stroke="var(--aplex-extended)" fill="var(--aplex-extended)" fillOpacity={0.06} strokeWidth={2.1} dot={false} activeDot={{ r: 4 }} isAnimationActive={false} />
+                    <Area yAxisId="price" type="monotone" dataKey="regularClose" name="Regular session" stroke={positive ? "var(--bullcase-positive)" : "var(--bullcase-negative)"} fill={positive ? "var(--bullcase-positive)" : "var(--bullcase-negative)"} fillOpacity={0.08} strokeWidth={2.4} dot={false} activeDot={{ r: 4 }} isAnimationActive={false} />
+                    <Area yAxisId="price" type="monotone" dataKey="extendedClose" name="Extended hours" stroke="var(--bullcase-extended)" fill="var(--bullcase-extended)" fillOpacity={0.06} strokeWidth={2.1} dot={false} activeDot={{ r: 4 }} isAnimationActive={false} />
                   </>
                 ) : (
-                  <Area yAxisId="price" type="monotone" dataKey="close" name="Close" stroke={positive ? "var(--aplex-positive)" : "var(--aplex-negative)"} fill={positive ? "var(--aplex-positive)" : "var(--aplex-negative)"} fillOpacity={0.09} strokeWidth={2.3} dot={false} activeDot={{ r: 4 }} isAnimationActive={false} />
+                  <Area yAxisId="price" type="monotone" dataKey="close" name="Close" stroke={positive ? "var(--bullcase-positive)" : "var(--bullcase-negative)"} fill={positive ? "var(--bullcase-positive)" : "var(--bullcase-negative)"} fillOpacity={0.09} strokeWidth={2.3} dot={false} activeDot={{ r: 4 }} isAnimationActive={false} />
                 )}
               </ComposedChart>
             </ResponsiveContainer>

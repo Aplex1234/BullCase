@@ -111,19 +111,19 @@ test("the Worker serves a repeated price-history request from edge cache", async
     const environment = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
 
     const first = await worker.fetch(new Request(requestUrl), environment, context);
-    assert.equal(first.headers.get("x-aplex-edge-cache"), "MISS");
+    assert.equal(first.headers.get("x-bullcase-edge-cache"), "MISS");
     await Promise.all(pending.splice(0));
     const etag = first.headers.get("etag");
     await first.arrayBuffer();
 
     const second = await worker.fetch(new Request(requestUrl), environment, context);
-    assert.equal(second.headers.get("x-aplex-edge-cache"), "HIT");
+    assert.equal(second.headers.get("x-bullcase-edge-cache"), "HIT");
     await second.arrayBuffer();
     assert.equal(providerRequests, 1);
 
     const conditional = await worker.fetch(new Request(requestUrl, { headers: { "If-None-Match": etag ?? "" } }), environment, context);
     assert.equal(conditional.status, 304);
-    assert.equal(conditional.headers.get("x-aplex-edge-cache"), "HIT");
+    assert.equal(conditional.headers.get("x-bullcase-edge-cache"), "HIT");
   } finally {
     globalThis.fetch = originalFetch;
     if (originalCaches === undefined) Reflect.deleteProperty(globalThis, "caches");

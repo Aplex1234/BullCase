@@ -3,7 +3,7 @@
 import Search from "@carbon/icons-react/es/Search.js";
 
 import type { SecuritySearchController } from "@/hooks/useSecuritySearch";
-import { Button, TextInput } from "./AplexPrimitives";
+import { Button, TextInput } from "./BullCasePrimitives";
 import { CompanyLogo } from "./CompanyLogo";
 
 export function CompanySearch({ search }: { search: SecuritySearchController }) {

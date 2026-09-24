@@ -50,7 +50,7 @@ All deleted tracked content remains recoverable through Git history.
 ## Documentation and configuration changes
 
 - Updated the root README with the canonical architecture, Sites-first local setup, and current validation commands.
-- Replaced the generic `sites-app` starter README with AplexAnalysis-specific architecture, development, validation, migration, and deployment guidance.
+- Replaced the generic `sites-app` starter README with BullCase-specific architecture, development, validation, migration, and deployment guidance.
 - Added `frontend/README.md` to document its shared production role and isolated harness.
 - Added and unignored `sites-app/.env.example` containing only the two variables used by the current application.
 - Changed the standalone frontend harness so it installs an API rewrite only when `API_PROXY_URL` is explicitly set. It no longer silently targets a deleted service.

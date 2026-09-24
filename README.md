@@ -1,6 +1,6 @@
-# AplexAnalysis
+# BullCase
 
-AplexAnalysis is a transparent equity-research terminal. Enter a US-listed ticker and the application retrieves SEC Company Facts, normalizes annual financial statements, calculates key metrics, runs a multi-method valuation, applies a dynamic margin of safety, and produces a reproducible 0 to 100 attractiveness score.
+BullCase is a transparent equity-research terminal. Enter a US-listed ticker and the application retrieves SEC Company Facts, normalizes annual financial statements, calculates key metrics, runs a multi-method valuation, applies a dynamic margin of safety, and produces a reproducible 0 to 100 attractiveness score.
 
 ## Repository architecture
 
@@ -25,7 +25,7 @@ The original standalone Python backend was removed after its routes, fallback da
 - Comparable, growth-adjusted and normalized-multiple valuation methods
 - Reverse DCF implied growth
 - Dynamic Buy Target margin of safety
-- Eight-category AplexAnalysis Score with visible formulas and weights
+- Eight-category BullCase Score with visible formulas and weights
 - Professional responsive terminal with Overview, Financials, Valuation, Buy Target, Comps, Earnings, Filings, Risks and AI Research areas
 - Offline SEC-derived fallback snapshots for AAPL, NVDA and COST
 

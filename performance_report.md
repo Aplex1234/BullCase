@@ -1,4 +1,4 @@
-# AplexAnalysis performance report
+# BullCase performance report
 
 Measured locally on 2026-08-29 using the production Sites build and Chromium against the same machine and route (`/`, AAPL Overview). Values are uncompressed local transfer sizes, so production compression should reduce absolute network bytes further. The before and after comparisons use the same build and browser tools.
 
@@ -27,7 +27,7 @@ The initial page response start was effectively unchanged (104.8 ms before, 106.
 
 ## Improvements made
 
-- Replaced the heavy Carbon React runtime controls with small accessible AplexAnalysis primitives using native buttons, inputs, status messages, tags, loading placeholders and theme wrappers.
+- Replaced the heavy Carbon React runtime controls with small accessible BullCase primitives using native buttons, inputs, status messages, tags, loading placeholders and theme wrappers.
 - Kept the same labels, roles, keyboard behavior, loading states, theme control and visual layout.
 - Reduced Carbon styles to the reset only and added focused styles for the primitives actually used.
 - Switched icons to direct module imports so unused icon exports are not traversed into the app bundle.

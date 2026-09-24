@@ -3765,7 +3765,7 @@
     },
     "peerSet": {
       "companies": [],
-      "methodology": "No peers met the minimum relevance score of 55. AplexAnalysis leaves the set empty instead of showing companies with weak product, customer, or business-model overlap.",
+      "methodology": "No peers met the minimum relevance score of 55. BullCase leaves the set empty instead of showing companies with weak product, customer, or business-model overlap.",
       "source_provider": "Nasdaq Stock Screener and company profiles",
       "source_url": "https://www.nasdaq.com/market-activity/stocks/screener",
       "source_as_of": "2026-08-30T20:17:36.395Z",

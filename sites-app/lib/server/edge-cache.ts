@@ -1,5 +1,5 @@
-export const EDGE_CACHEABLE_HEADER = "x-aplex-edge-cacheable";
-const EDGE_CACHE_STATUS_HEADER = "x-aplex-edge-cache";
+export const EDGE_CACHEABLE_HEADER = "x-bullcase-edge-cacheable";
+const EDGE_CACHE_STATUS_HEADER = "x-bullcase-edge-cache";
 
 const ANALYSIS_VIEWS = new Set([
   "overview", "financials", "valuation", "buyTarget", "comps",

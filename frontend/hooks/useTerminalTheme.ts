@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 
 export type TerminalTheme = "light" | "dark";
 
-const THEME_KEY = "aplex-theme-premium";
+const THEME_KEY = "bullcase-theme-premium";
 
 export function readSavedTheme(getStorage: () => Pick<Storage, "getItem"> = () => window.localStorage): TerminalTheme {
   try {

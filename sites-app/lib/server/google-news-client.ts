@@ -10,7 +10,7 @@ export const googleNewsClient = {
       url: `https://news.google.com/rss/search?${params}`,
       headers: {
         Accept: "application/rss+xml, application/xml, text/xml",
-        "User-Agent": "Mozilla/5.0 (compatible; AplexAnalysis/0.2; financial research)",
+        "User-Agent": "Mozilla/5.0 (compatible; BullCase/0.2; financial research)",
       },
       timeoutMs: 7_000,
     });

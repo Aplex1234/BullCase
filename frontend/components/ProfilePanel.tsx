@@ -107,7 +107,7 @@ function ProfilePage({ account, snapshot, error, loading, onRetry, signInPath, s
 }) {
   if (!account) return <section className="account-guest">
     <UserAvatar size={36} aria-hidden="true" />
-    <h3>Sign in to personalize AplexAnalysis</h3>
+    <h3>Sign in to personalize BullCase</h3>
     <p>Keep provider keys and favorite stocks attached to one private account.</p>
     <a className="account-primary-action" href={signInPath} target="_top"><Login size={18} aria-hidden="true" />Sign in with ChatGPT</a>
   </section>;

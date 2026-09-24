@@ -23,11 +23,11 @@ export function FinancialChart({ periods }: { periods: FinancialPeriod[] }) {
     <div className="chart-frame" role="img" aria-label={`Revenue, free cash flow and operating income history (${scale.label})`}>
       <ResponsiveContainer width="100%" height={300}>
         <ComposedChart data={data} margin={{ top: 16, right: 8, bottom: 0, left: 0 }}>
-          <CartesianGrid stroke="var(--aplex-grid)" vertical={false} />
-          <XAxis dataKey="year" tickLine={false} axisLine={{ stroke: "var(--aplex-line-strong)" }} tick={{ fill: "var(--aplex-muted)" }} />
+          <CartesianGrid stroke="var(--bullcase-grid)" vertical={false} />
+          <XAxis dataKey="year" tickLine={false} axisLine={{ stroke: "var(--bullcase-line-strong)" }} tick={{ fill: "var(--bullcase-muted)" }} />
           <YAxis yAxisId="money" tickFormatter={(val) => formatScaledMoney(val, scale.unit)} tickLine={false} axisLine={false} width={68} />
           <Tooltip
-            contentStyle={{ borderRadius: 10, border: "1px solid var(--aplex-line-strong)", boxShadow: "var(--aplex-shadow)", background: "var(--aplex-panel)", color: "var(--aplex-ink)" }}
+            contentStyle={{ borderRadius: 10, border: "1px solid var(--bullcase-line-strong)", boxShadow: "var(--bullcase-shadow)", background: "var(--bullcase-panel)", color: "var(--bullcase-ink)" }}
             formatter={(value) => formatScaledMoney(value as number | string, scale.unit)}
           />
           <Legend iconType="square" />
