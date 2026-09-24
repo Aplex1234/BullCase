@@ -1,7 +1,7 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { prefetchAnalysis, searchSecurities } from "@/lib/api";
 import {
@@ -21,8 +21,12 @@ export function useSecuritySearch(
   const [recent, setRecent] = useState<SecuritySearchResult[]>([]);
   const [open, setOpen] = useState(false);
   const [searching, setSearching] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [searchError, setSearchError] = useState<string | null>(null);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
+  const submissionController = useRef<AbortController | null>(null);
+
+  useEffect(() => () => submissionController.current?.abort(), [currentTicker]);
 
   useEffect(() => {
     setRecent(loadRecentSecurities());
@@ -86,6 +90,9 @@ export function useSecuritySearch(
   const openTicker = useCallback((value: string) => {
     const normalized = value.trim().toUpperCase();
     if (!normalized) return false;
+    submissionController.current?.abort();
+    submissionController.current = null;
+    setSubmitting(false);
     setInput(normalized);
     onSelectTicker(normalized);
     close();
@@ -100,7 +107,8 @@ export function useSecuritySearch(
 
   const submit = useCallback((event: FormEvent) => {
     event.preventDefault();
-    const normalized = input.trim().toUpperCase();
+    const query = input.trim();
+    const normalized = query.toUpperCase();
     if (!normalized) return;
     const exactMatch = [...results, ...recent].find((item) => item.ticker === normalized);
     if (exactMatch) {
@@ -111,10 +119,38 @@ export function useSecuritySearch(
       selectSecurity(options[highlightedIndex]);
       return;
     }
-    openTicker(normalized);
+    submissionController.current?.abort();
+    const controller = new AbortController();
+    submissionController.current = controller;
+    setOpen(false);
+    setSubmitting(true);
+    setSearchError(null);
+    void searchSecurities(query, controller.signal)
+      .then((matches) => {
+        if (controller.signal.aborted) return;
+        const match = matches.find((item) => item.ticker === normalized) ?? matches[0];
+        if (match) selectSecurity(match);
+        else if (query === normalized && /^[A-Z][A-Z0-9.-]{0,9}$/.test(query)) openTicker(query);
+        else setSearchError("No matching SEC-reporting company found.");
+      })
+      .catch((error: Error) => {
+        if (!controller.signal.aborted && error.name !== "AbortError") {
+          if (query === normalized && /^[A-Z][A-Z0-9.-]{0,9}$/.test(query)) openTicker(query);
+          else setSearchError(error.message || "Company search is temporarily unavailable.");
+        }
+      })
+      .finally(() => {
+        if (submissionController.current === controller) {
+          submissionController.current = null;
+          setSubmitting(false);
+        }
+      });
   }, [highlightedIndex, input, open, openTicker, options, recent, results, selectSecurity]);
 
   const changeInput = useCallback((value: string) => {
+    submissionController.current?.abort();
+    submissionController.current = null;
+    setSubmitting(false);
     setInput(value);
     setResults([]);
     setSearchError(null);
@@ -135,6 +171,7 @@ export function useSecuritySearch(
     options,
     open,
     searching,
+    submitting,
     searchError,
     highlightedIndex,
     rememberSecurity,

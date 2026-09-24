@@ -105,6 +105,27 @@ const CACHE_SCHEMA_SQL = [
   `CREATE TABLE IF NOT EXISTS provider_request_budgets (
     provider_key TEXT PRIMARY KEY NOT NULL, next_available_at INTEGER NOT NULL
   )`,
+  `CREATE TABLE IF NOT EXISTS user_profiles (
+    user_id TEXT PRIMARY KEY NOT NULL, email TEXT NOT NULL, display_name TEXT NOT NULL,
+    preferred_ai_provider TEXT DEFAULT 'openrouter' NOT NULL,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL
+  )`,
+  `CREATE INDEX IF NOT EXISTS idx_user_profiles_email ON user_profiles (email)`,
+  `CREATE TABLE IF NOT EXISTS user_ai_credentials (
+    user_id TEXT NOT NULL REFERENCES user_profiles(user_id) ON DELETE CASCADE,
+    provider TEXT NOT NULL, model TEXT NOT NULL, key_ciphertext TEXT NOT NULL,
+    key_iv TEXT NOT NULL, key_version INTEGER DEFAULT 1 NOT NULL,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    PRIMARY KEY (user_id, provider)
+  )`,
+  `CREATE TABLE IF NOT EXISTS favorite_stocks (
+    user_id TEXT NOT NULL REFERENCES user_profiles(user_id) ON DELETE CASCADE,
+    ticker TEXT NOT NULL, created_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    PRIMARY KEY (user_id, ticker)
+  )`,
+  `CREATE INDEX IF NOT EXISTS idx_favorite_stocks_user_created_at ON favorite_stocks (user_id, created_at)`,
   `CREATE TABLE IF NOT EXISTS peer_selection_runs (
     id TEXT PRIMARY KEY NOT NULL,
     target_listing_id TEXT NOT NULL REFERENCES listings(id) ON DELETE CASCADE,

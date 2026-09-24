@@ -179,6 +179,18 @@
 .account-summary > button:hover { background: var(--aplex-hover); }
 .account-summary span { min-width: 0; font-size: 14px; }
 .account-summary small { display: block; margin-top: 4px; color: var(--aplex-muted); font-size: 12px; }
+.account-usage-heading { display: flex; align-items: start; justify-content: space-between; gap: 16px; margin: 22px 0 12px; }
+.account-usage-heading h3 { margin-bottom: 3px; }
+.account-usage-heading button { flex: 0 0 auto; padding: 4px 8px; border: 0; background: transparent; color: var(--aplex-blue); font: 500 14px "IBM Plex Sans", Arial, sans-serif; cursor: pointer; }
+.account-usage-heading button:disabled { color: var(--aplex-muted); cursor: default; }
+.account-usage-list { border-top: 1px solid var(--aplex-line); }
+.account-usage-row { display: flex; justify-content: space-between; align-items: start; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--aplex-line); }
+.account-usage-row > div:last-child { text-align: right; }
+.account-usage-row strong, .account-usage-row small { display: block; }
+.account-usage-row strong { color: var(--aplex-ink); font-size: 14px; font-weight: 600; }
+.account-usage-row small { margin-top: 3px; color: var(--aplex-muted); font-size: 12px; line-height: 1.4; }
+.account-usage-list > p { margin-top: 10px; }
+.account-usage-pending { padding: 12px 0; }
 .account-primary-action, .account-secondary-action, .account-danger-action, .account-signout { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; margin-top: 18px; padding: 0 16px; border: 1px solid var(--aplex-blue); border-radius: 4px; background: var(--aplex-blue); color: #fff; font: 500 14px "IBM Plex Sans", Arial, sans-serif; text-decoration: none; cursor: pointer; }
 .account-secondary-action { border-color: var(--aplex-line); background: transparent; color: var(--aplex-ink); }
 .account-danger-action { margin-top: 0; border-color: var(--aplex-line); background: transparent; color: var(--aplex-negative); }
@@ -516,6 +528,8 @@
   .profile-sections button { white-space: nowrap; }
   .profile-content { padding: 22px 18px; }
   .account-summary { grid-template-columns: 1fr; }
+  .account-usage-row { display: block; }
+  .account-usage-row > div:last-child { margin-top: 4px; text-align: left; }
   .comps-page .peer-directory-grid { grid-template-columns: 1fr; }
   .comps-page .comps-snapshot { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .comps-page .comps-snapshot article { padding: 14px; }

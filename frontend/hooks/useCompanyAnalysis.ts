@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { fetchAnalysis, warmAnalysis } from "@/lib/api";
 import {
@@ -13,7 +13,7 @@ import type { Analysis, AnalysisSection, SecuritySearchResult } from "@/lib/type
 
 export type RefreshStatus = {
   message: string;
-  outcome: "success" | "error";
+  outcome: "success" | "warning" | "error";
 };
 
 function securityFromAnalysis(analysis: Analysis): SecuritySearchResult {
@@ -49,10 +49,12 @@ export function useCompanyAnalysis({
   const [sectionErrors, setSectionErrors] = useState<Partial<Record<AnalysisSection, string>>>({});
   const [error, setError] = useState<string | null>(null);
   const [manualRefreshing, setManualRefreshing] = useState(false);
-  const [manualRefreshStatus, setManualRefreshStatus] = useState<RefreshStatus | null>(null);
+  const [manualRefreshStatus, setManualRefreshStatus] = useState<(RefreshStatus & { ticker: string }) | null>(null);
   const [requestVersion, setRequestVersion] = useState(0);
+  const refreshSequence = useRef(0);
 
   useEffect(() => {
+    refreshSequence.current += 1;
     const controller = new AbortController();
     let active = true;
     const hasVisibleSnapshot = requestVersion === 0 && initialAnalysis?.company.ticker === ticker;
@@ -146,24 +148,34 @@ export function useCompanyAnalysis({
     if (!analysis || manualRefreshing) return;
     const refreshTicker = ticker;
     const refreshSection = activePage;
+    const sequence = refreshSequence.current;
     setManualRefreshing(true);
     setManualRefreshStatus(null);
     try {
       const refreshed = await fetchAnalysis(refreshTicker, undefined, refreshSection, true);
+      if (refreshSequence.current !== sequence) return;
       setAnalysis((current) => {
         if (!current || current.company.ticker !== refreshTicker) return current;
         return refreshSection === "overview"
           ? refreshed
           : mergeAnalysisSection(current, refreshed, refreshSection);
       });
-      setManualRefreshStatus({ message: "Data refreshed just now", outcome: "success" });
-    } catch (refreshError) {
+      const status = refreshed.freshness?.page_status;
+      const remainsStale = !status || status === "stale" || status === "refreshing";
       setManualRefreshStatus({
+        ticker: refreshTicker,
+        message: remainsStale ? "Some sources could not refresh. Showing the latest available data." : "Data refreshed just now",
+        outcome: remainsStale ? "warning" : "success",
+      });
+    } catch (refreshError) {
+      if (refreshSequence.current !== sequence) return;
+      setManualRefreshStatus({
+        ticker: refreshTicker,
         message: refreshError instanceof Error ? refreshError.message : "Refresh failed. Try again.",
         outcome: "error",
       });
     } finally {
-      setManualRefreshing(false);
+      if (refreshSequence.current === sequence) setManualRefreshing(false);
     }
   }, [activePage, analysis, manualRefreshing, ticker]);
 
@@ -174,7 +186,7 @@ export function useCompanyAnalysis({
     sectionErrors,
     error,
     manualRefreshing,
-    manualRefreshStatus,
+    manualRefreshStatus: manualRefreshStatus?.ticker === ticker ? manualRefreshStatus : null,
     retrySection,
     retryOverview,
     refresh,

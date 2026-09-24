@@ -104,8 +104,10 @@ export function CompanySearch({ search }: { search: SecuritySearchController }) 
             </div>
           )}
           <span className="search-status" aria-live="polite">
-            {search.searching
-              ? "Searching securities…"
+            {search.submitting
+              ? "Finding company…"
+              : search.searching
+                ? "Searching securities…"
               : search.searchError ?? (search.results.length ? `${search.results.length} matches` : "")}
           </span>
         </div>

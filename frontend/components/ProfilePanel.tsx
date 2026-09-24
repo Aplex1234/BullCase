@@ -32,21 +32,24 @@ export function ProfilePanel({ theme, onToggleTheme, account, signInPath, signOu
   const [open, setOpen] = useState(false);
   const [snapshot, setSnapshot] = useState<AccountSnapshot | null>(null);
   const [loadError, setLoadError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [reload, setReload] = useState(0);
 
   useEffect(() => {
     if (!open || !account) return;
     const controller = new AbortController();
     setLoadError("");
+    setLoading(true);
     void fetch("/api/v1/account", { cache: "no-store", signal: controller.signal })
       .then(async (response) => {
         const result = await response.json() as AccountSnapshot & { detail?: string };
         if (!response.ok) throw new Error(result.detail || "Account settings are unavailable.");
-        setSnapshot(result);
+        if (!controller.signal.aborted) setSnapshot(result);
       })
       .catch((reason) => {
         if (!controller.signal.aborted) setLoadError(reason instanceof Error ? reason.message : "Account settings are unavailable.");
-      });
+      })
+      .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
   }, [account, open, reload]);
 
@@ -83,7 +86,7 @@ export function ProfilePanel({ theme, onToggleTheme, account, signInPath, signOu
         <button type="button" aria-current={page === "appearance" ? "page" : undefined} onClick={() => setPage("appearance")}>Appearance</button>
       </nav>
       <div className="profile-content">
-        {page === "profile" && <ProfilePage account={account} snapshot={snapshot} signInPath={signInPath} signOutPath={signOutPath} onOpenFavorites={openFavorites} />}
+        {page === "profile" && <ProfilePage account={account} snapshot={snapshot} error={loadError} loading={loading} onRetry={() => setReload((value) => value + 1)} signInPath={signInPath} signOutPath={signOutPath} onOpenFavorites={openFavorites} />}
         {page === "favorites" && <FavoritesSettings account={account} snapshot={snapshot} error={loadError} signInPath={signInPath} onSelectCompany={selectFavorite} onRetry={() => setReload((value) => value + 1)} />}
         {page === "ai" && <AiSettings account={account} snapshot={snapshot} error={loadError} signInPath={signInPath} onSaved={setSnapshot} onRetry={() => setReload((value) => value + 1)} />}
         {page === "appearance" && <AppearanceSettings theme={theme} onToggleTheme={onToggleTheme} />}
@@ -92,9 +95,12 @@ export function ProfilePanel({ theme, onToggleTheme, account, signInPath, signOu
   </>;
 }
 
-function ProfilePage({ account, snapshot, signInPath, signOutPath, onOpenFavorites }: {
+function ProfilePage({ account, snapshot, error, loading, onRetry, signInPath, signOutPath, onOpenFavorites }: {
   account: AccountIdentity | null;
   snapshot: AccountSnapshot | null;
+  error: string;
+  loading: boolean;
+  onRetry: () => void;
   signInPath: string;
   signOutPath: string;
   onOpenFavorites: () => void;
@@ -113,6 +119,15 @@ function ProfilePage({ account, snapshot, signInPath, signOutPath, onOpenFavorit
       <button type="button" onClick={onOpenFavorites}><Favorite size={20} aria-hidden="true" /><span>Favorites<small>{snapshot ? `${snapshot.favorites.length} saved` : "Loading"}</small></span></button>
       <div><Password size={20} aria-hidden="true" /><span>AI providers<small>{providers == null ? "Loading" : `${providers} connected`}</small></span></div>
     </div>
+    <div className="account-usage-heading"><div><h3>Current usage</h3><p>Limits reset automatically. Times use your timezone.</p></div><button type="button" onClick={onRetry} disabled={loading}>{loading ? "Updating" : "Update"}</button></div>
+    {error && <p className="account-form-error" role="alert">{error}</p>}
+    {snapshot?.limits ? <div className="account-usage-list">
+      {snapshot.limits.buckets.map((bucket) => <div className="account-usage-row" key={bucket.kind}>
+        <div><strong>{usageLabel(bucket.kind)}</strong>{bucket.kind === "ai-research-shared" && <small>Site-wide</small>}</div>
+        <div><strong>{bucket.used} / {bucket.limit} used</strong><small>{bucket.remaining} left in this limit · resets {formatResetTime(bucket.resetsAt)}</small></div>
+      </div>)}
+      <p>Searches and manual refreshes also use the data request limit, so the lower remaining count applies. Shared AI capacity applies to everyone.</p>
+    </div> : !error && <p className="account-usage-pending" role="status">Loading usage…</p>}
     <a className="account-signout" href={signOutPath} target="_top"><Logout size={18} aria-hidden="true" />Sign out</a>
   </section>;
 }
@@ -228,4 +243,21 @@ function AppearanceSettings({ theme, onToggleTheme }: { theme: TerminalTheme; on
 function initials(value: string) {
   const words = value.trim().split(/\s+/).filter(Boolean);
   return (words.length > 1 ? `${words[0][0]}${words.at(-1)?.[0] ?? ""}` : words[0]?.slice(0, 2) || "AA").toUpperCase();
+}
+
+function usageLabel(kind: AccountSnapshot["limits"]["buckets"][number]["kind"]) {
+  return {
+    general: "Data requests",
+    search: "Searches",
+    "manual-refresh": "Manual refreshes",
+    "cold-build": "New analyses",
+    "ai-research": "AI Research",
+    "ai-research-shared": "Shared AI Research",
+  }[kind];
+}
+
+function formatResetTime(value: string) {
+  return new Intl.DateTimeFormat(undefined, {
+    month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
+  }).format(new Date(value));
 }

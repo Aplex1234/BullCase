@@ -18,6 +18,7 @@ export async function GET(request: Request) {
       );
     }
 
+    await enforceRequestLimit(request, "search");
     return NextResponse.json(await searchSecurities(query, limit));
   } catch (error) {
     if (error instanceof RequestRateLimitError) {

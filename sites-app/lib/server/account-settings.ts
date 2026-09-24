@@ -1,5 +1,6 @@
 import type { D1Database } from "./cache-database.ts";
 import { getCacheDatabase } from "./cache-database.ts";
+import { readRateLimitUsageForUser } from "./scaling-protection.ts";
 
 export type AccountUser = {
   userId: string;
@@ -54,6 +55,7 @@ export async function readAccount(user: AccountUser) {
   const favorites = await db.prepare(`
     SELECT ticker, created_at FROM favorite_stocks WHERE user_id = ? ORDER BY created_at DESC
   `).bind(user.userId).all<{ ticker: string; created_at: string }>();
+  const limits = await readRateLimitUsageForUser(user.userId);
   const providers: Record<AiProvider, AccountProviderStatus> = {
     openrouter: { configured: false, model: "" },
     groq: { configured: false, model: "" },
@@ -66,6 +68,7 @@ export async function readAccount(user: AccountUser) {
     preferredProvider: isAiProvider(profile?.preferred_ai_provider) ? profile.preferred_ai_provider : "openrouter",
     providers,
     favorites: favorites.results ?? [],
+    limits,
   };
 }
 

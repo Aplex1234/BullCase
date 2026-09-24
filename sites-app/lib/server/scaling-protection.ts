@@ -21,12 +21,26 @@ const localCounters = new MemoryFixedWindowCounter();
 let localSecNextAvailableAt = 0;
 let cleanupSequence = 0;
 
-export type RequestLimitKind = "general" | "manual-refresh" | "cold-build";
+export type RequestLimitKind = "general" | "search" | "manual-refresh" | "cold-build";
 
 const REQUEST_LIMITS: Record<RequestLimitKind, { limit: number; windowMs: number }> = {
   general: { limit: 50, windowMs: 60_000 },
+  search: { limit: 50, windowMs: 60_000 },
   "manual-refresh": { limit: 5, windowMs: 60 * 60_000 },
   "cold-build": { limit: 10, windowMs: 60_000 },
+};
+const RESEARCH_USER_LIMIT = { limit: 5, windowMs: 60_000 };
+const RESEARCH_SHARED_LIMIT = { limit: 100, windowMs: 86_400_000 };
+
+export type RateLimitUsage = {
+  capturedAt: string;
+  buckets: Array<{
+    kind: RequestLimitKind | "ai-research" | "ai-research-shared";
+    used: number;
+    limit: number;
+    remaining: number;
+    resetsAt: string;
+  }>;
 };
 
 export class RequestRateLimitError extends Error {
@@ -84,9 +98,21 @@ async function sha256(value: string) {
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
+async function authenticatedIdentity(request: Request) {
+  const userId = request.headers.get("oai-authenticated-user-id")?.trim();
+  const email = request.headers.get("oai-authenticated-user-email")?.trim();
+  return userId && email ? userIdentity(userId) : null;
+}
+
+function userIdentity(userId: string) {
+  return sha256(`aplexanalysis-user:${userId}`);
+}
+
 async function requestIdentity(request: Request) {
   const stampedIdentity = request.headers.get(TRUSTED_CLIENT_KEY_HEADER);
   if (stampedIdentity) return stampedIdentity;
+  const user = await authenticatedIdentity(request);
+  if (user) return user;
   const cloudflareRequest = request as Request & { cf?: unknown };
   const cloudflareIp = cloudflareRequest.cf ? request.headers.get("cf-connecting-ip") : null;
   if (cloudflareIp) return sha256(`aplexanalysis-edge-ip:${cloudflareIp}`);
@@ -98,9 +124,9 @@ export async function stampTrustedClientIdentity(request: Request) {
   headers.delete(TRUSTED_CLIENT_KEY_HEADER);
   const cloudflareRequest = request as Request & { cf?: unknown };
   const cloudflareIp = cloudflareRequest.cf ? request.headers.get("cf-connecting-ip") : null;
-  const identity = cloudflareIp
+  const identity = await authenticatedIdentity(request) ?? (cloudflareIp
     ? await sha256(`aplexanalysis-edge-ip:${cloudflareIp}`)
-    : "local-development";
+    : "local-development");
   headers.set(TRUSTED_CLIENT_KEY_HEADER, identity);
   return new Request(request, { headers });
 }
@@ -118,13 +144,45 @@ export async function enforceResearchLimit(request: Request) {
   if (!db) throw new Error("AI Research requires shared request limits. Storage is unavailable.");
   const identity = await requestIdentity(request);
   const now = Date.now();
-  for (const [key, limit, windowMs] of [[identity, 5, 60000], ["global", 100, 86400000]] as const) {
+  for (const [key, { limit, windowMs }] of [[identity, RESEARCH_USER_LIMIT], ["global", RESEARCH_SHARED_LIMIT]] as const) {
     const expires = Math.floor(now / windowMs) * windowMs + windowMs;
     const result = await db.prepare(`INSERT INTO request_rate_limits (counter_key, request_count, expires_at) VALUES (?, 1, ?)
       ON CONFLICT(counter_key) DO UPDATE SET request_count=request_rate_limits.request_count + 1
       WHERE request_rate_limits.request_count < ?`).bind(bucketKey("ai-research", key, windowMs, now), new Date(expires).toISOString(), limit).run();
     if ((result.meta?.changes ?? 0) < 1) throw new RequestRateLimitError("general", Math.ceil((expires - now) / 1000));
   }
+}
+
+export async function readRateLimitUsageForUser(userId: string): Promise<RateLimitUsage> {
+  const db = await getCacheDatabase();
+  if (!db) throw new Error("Request limit storage is unavailable.");
+  const now = Date.now();
+  const identity = await userIdentity(userId);
+  const definitions = [
+    ...Object.entries(REQUEST_LIMITS).map(([kind, profile]) => ({
+      kind: kind as RequestLimitKind,
+      key: bucketKey(`request:${kind}`, identity, profile.windowMs, now),
+      ...profile,
+    })),
+    { kind: "ai-research" as const, key: bucketKey("ai-research", identity, RESEARCH_USER_LIMIT.windowMs, now), ...RESEARCH_USER_LIMIT },
+    { kind: "ai-research-shared" as const, key: bucketKey("ai-research", "global", RESEARCH_SHARED_LIMIT.windowMs, now), ...RESEARCH_SHARED_LIMIT },
+  ];
+  const rows = await db.prepare(`SELECT counter_key, request_count FROM request_rate_limits WHERE counter_key IN (${definitions.map(() => "?").join(", ")})`)
+    .bind(...definitions.map((item) => item.key)).all<{ counter_key: string; request_count: number }>();
+  const counts = new Map((rows.results ?? []).map((row) => [row.counter_key, row.request_count]));
+  return {
+    capturedAt: new Date(now).toISOString(),
+    buckets: definitions.map(({ kind, key, limit, windowMs }) => {
+      const used = Math.max(0, Math.min(limit, counts.get(key) ?? 0));
+      return {
+        kind,
+        used,
+        limit,
+        remaining: limit - used,
+        resetsAt: new Date(Math.floor(now / windowMs) * windowMs + windowMs).toISOString(),
+      };
+    }),
+  };
 }
 
 async function readBuildResult<T>(buildKey: string): Promise<T | null> {

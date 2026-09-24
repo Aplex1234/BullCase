@@ -80,13 +80,16 @@ When D1 is unavailable, the application can still use isolate-local fallbacks fo
 
 ## Rate limiting and load protection
 
-Client identity is derived from a Worker-stamped hash of the connecting IP. Incoming attempts to supply the trusted identity header are overwritten. D1 fixed-window counters coordinate production limits; local development falls back to an in-memory identity and counters.
+Signed-in requests use a Worker-stamped hash of the account's Site user ID, so users on the same network have separate limits. Anonymous requests use a hash of the connecting IP. Incoming attempts to supply the trusted identity header are overwritten. D1 fixed-window counters coordinate production limits; local development falls back to in-memory counters when D1 is unavailable. The signed-in Profile reads current counters without consuming them.
 
 | Limit | Current policy |
 | --- | ---: |
-| General API requests | 50 per minute per client |
-| Manual refresh requests | 5 per hour per client |
-| Cold analysis builds | 10 per minute per client |
+| General API requests, including searches | 50 per minute per identity |
+| Searches | 50 per minute per identity, also counted in general requests |
+| Manual refresh requests | 5 per hour per identity, also counted in general requests |
+| Cold analysis builds | 10 per minute per identity |
+| AI Research requests | 5 per minute per identity |
+| Shared AI Research requests | 100 per day across the Site |
 | Same-ticker manual refresh cooldown | 60 seconds |
 | SEC request starts | At most 8 per second, with a bounded wait queue |
 
