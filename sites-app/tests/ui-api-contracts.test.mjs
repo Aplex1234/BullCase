@@ -6,6 +6,20 @@ import { buildFinancialGrowthData, financialGrowthValue, FINANCIAL_GROUPS } from
 import { analysisSectionPanelState, mergeAnalysisSection } from "../../frontend/lib/analysis-sections.ts";
 import { buildOverviewSnapshot, buildSectionSnapshot } from "../lib/server/analysis-service.ts";
 
+test("public share image has no embedded provenance block", async () => {
+  const png = await readFile(new URL("../public/og-premium.png", import.meta.url));
+  assert.equal(png.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
+  let offset = 8;
+  while (offset + 12 <= png.length) {
+    const length = png.readUInt32BE(offset);
+    const type = png.toString("ascii", offset + 4, offset + 8);
+    assert.notEqual(type, "caBX");
+    offset += length + 12;
+    if (type === "IEND") break;
+  }
+  assert.equal(offset, png.length);
+});
+
 const TERMINAL_SOURCE_FILES = [
   "../../frontend/components/ResearchTerminal.tsx",
   "../../frontend/components/ResearchPages.tsx",
@@ -418,7 +432,7 @@ test("keeps quote attribution clickable and Price Range navigation connected", a
   assert.match(component, /key: "buyTarget", label: "Price Range"/);
   assert.match(component, /Model estimates, not a target/);
   assert.match(component, /type="range"/);
-  assert.match(component, /It is not an BullCase recommendation/);
+  assert.match(component, /It is not a BullCase recommendation/);
   assert.match(component, /price-range-detail-sheet/);
   assert.doesNotMatch(component, /BULLCASE BUY TARGET|SAFETY FACTOR|label="Buy target"/);
   assert.doesNotMatch(component, /price-range-sources|>Data used</);

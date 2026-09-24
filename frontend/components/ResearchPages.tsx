@@ -417,7 +417,7 @@ function PriceRangeView({ analysis }: { analysis: Analysis }) {
                 onChange={(event) => setUserDiscount(Number(event.target.value))}
               />
               <div className="price-entry-scale"><span>0%</span><span>20%</span><span>40%</span></div>
-              <p>This threshold comes only from your selected discount. It is not an BullCase recommendation.</p>
+              <p>This threshold comes only from your selected discount. It is not a BullCase recommendation.</p>
             </div>
           </section>
         </div>
