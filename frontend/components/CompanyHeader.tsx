@@ -4,26 +4,17 @@ import Renew from "@carbon/icons-react/es/Renew.js";
 import { useEffect, useRef } from "react";
 
 import type { RefreshStatus } from "@/hooks/useCompanyAnalysis";
-import { compactMoney, money, multiple } from "@/lib/format";
+import { compactMoney, formatFreshnessTime, money, multiple } from "@/lib/format";
 import type { Analysis } from "@/lib/types";
 import { Tag } from "./BullCasePrimitives";
 import { CompanyLogo } from "./CompanyLogo";
-
-function freshnessTime(value: string | null | undefined, dateOnly = false) {
-  if (!value) return "Unavailable";
-  const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) return value;
-  return parsed.toLocaleString("en-US", dateOnly
-    ? { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }
-    : { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: "UTC", timeZoneName: "short" });
-}
 
 function freshnessDisplay(
   item: NonNullable<Analysis["freshness"]>["financials"],
   dateOnly = false,
 ) {
   if (item.status === "unavailable") return "Unavailable";
-  return item.as_of ? freshnessTime(item.as_of, dateOnly) : "Timestamp not supplied";
+  return item.as_of ? formatFreshnessTime(item.as_of, dateOnly) : "Timestamp not supplied";
 }
 
 export function CompanyHeader({

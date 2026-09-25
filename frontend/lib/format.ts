@@ -10,6 +10,21 @@ const compactNumberFormatter = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 1,
 });
 
+export function formatFreshnessTime(value: string | null | undefined, dateOnly = false): string {
+  if (!value) return "Unavailable";
+  const source = value.trim();
+  // Some quote providers supply only a calendar date. Keep that precision instead
+  // of interpreting midnight in the server's or visitor's local timezone.
+  if (/^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{1,2}, \d{4}$/i.test(source)) return source;
+  const isoDateOnly = /^\d{4}-\d{2}-\d{2}$/.test(source);
+  const zoneLessIsoTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/.test(source);
+  const parsed = new Date(isoDateOnly ? `${source}T00:00:00Z` : zoneLessIsoTime ? `${source}Z` : source);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return parsed.toLocaleString("en-US", dateOnly || isoDateOnly
+    ? { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }
+    : { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: "UTC", timeZoneName: "short" });
+}
+
 function currencyFormatter(digits: number): Intl.NumberFormat {
   const normalizedDigits = Math.max(0, Math.min(20, Math.trunc(digits)));
   const cached = currencyFormatters.get(normalizedDigits);
