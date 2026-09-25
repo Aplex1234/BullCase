@@ -114,6 +114,7 @@ test("server-renders the BullCase terminal", async () => {
 
 test("account panel supports sign-in, encrypted provider setup, favorites, and appearance", async () => {
   const profile = await readFile(new URL("../../frontend/components/ProfilePanel.tsx", import.meta.url), "utf8");
+  const privacy = await readFile(new URL("../app/privacy/page.tsx", import.meta.url), "utf8");
   const header = await readFile(new URL("../../frontend/components/TerminalHeader.tsx", import.meta.url), "utf8");
   const favoriteButton = await readFile(new URL("../../frontend/components/FavoriteButton.tsx", import.meta.url), "utf8");
   const navigation = await readFile(new URL("../../frontend/components/TerminalNavigation.tsx", import.meta.url), "utf8");
@@ -135,6 +136,11 @@ test("account panel supports sign-in, encrypted provider setup, favorites, and a
   assert.match(profile, /page === "favorites"/);
   assert.match(profile, /No favorites yet/);
   assert.match(profile, /heart beside your profile/);
+  assert.match(profile, /href="\/privacy">Privacy<\/a>/);
+  assert.match(privacy, /Privacy policy/);
+  assert.match(privacy, /AI Research and provider keys/);
+  assert.match(privacy, /GarretLipkin@gmail\.com/);
+  assert.doesNotMatch(privacy, /OPERATOR_NAME_TO_CONFIRM/);
   assert.doesNotMatch(navigation, /label: "Favorites"/);
   assert.match(header, /<FavoriteButton ticker=\{ticker\} account=\{account\}/);
   assert.match(favoriteButton, /FavoriteFilled/);

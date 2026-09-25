@@ -84,6 +84,7 @@ export function ProfilePanel({ theme, onToggleTheme, account, signInPath, signOu
         <button type="button" aria-current={page === "favorites" ? "page" : undefined} onClick={() => setPage("favorites")}>Favorites</button>
         <button type="button" aria-current={page === "ai" ? "page" : undefined} onClick={() => setPage("ai")}>AI providers</button>
         <button type="button" aria-current={page === "appearance" ? "page" : undefined} onClick={() => setPage("appearance")}>Appearance</button>
+        <a href="/privacy">Privacy</a>
       </nav>
       <div className="profile-content">
         {page === "profile" && <ProfilePage account={account} snapshot={snapshot} error={loadError} loading={loading} onRetry={() => setReload((value) => value + 1)} signInPath={signInPath} signOutPath={signOutPath} onOpenFavorites={openFavorites} />}
