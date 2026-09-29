@@ -10,7 +10,7 @@
     "build": "vinext build",
     "start": "vinext start",
     "test": "npm run build && npm run test:unit && npm run test:integration && npm run test:api && npm run test:performance",
-    "test:unit": "node --no-warnings --experimental-strip-types --test tests/financial-regression.test.mjs tests/company-peer-selection.test.mjs tests/financial-normalization.test.mjs tests/cache-refactor.test.ts tests/provider-architecture.test.ts tests/ai-research.test.mjs",
+    "test:unit": "node --no-warnings --experimental-strip-types --test tests/financial-audit.test.mjs tests/financial-regression.test.mjs tests/company-peer-selection.test.mjs tests/financial-normalization.test.mjs tests/cache-refactor.test.ts tests/provider-architecture.test.ts tests/ai-research.test.mjs",
     "test:integration": "node --no-warnings --experimental-strip-types --test tests/financial-ui-basics.test.mjs tests/ui-api-contracts.test.mjs tests/news-risk-providers.test.mjs",
     "test:api": "node --no-warnings --experimental-strip-types --test tests/market-api-integration.test.mjs",
     "test:performance": "node --no-warnings --experimental-strip-types --test tests/cache-efficiency.test.ts tests/scaling-protection.test.ts",

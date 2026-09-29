@@ -158,9 +158,13 @@ const METRICS: Record<string, MetricDefinition> = {
     tags: [
       "LongTermDebtAndFinanceLeaseObligationsCurrent",
       "LongTermDebtCurrent",
-      "ShortTermBorrowings",
-      "ShortTermDebtCurrent",
     ],
+  },
+  short_term_borrowings: {
+    period: "instant", unit: "USD", tags: ["ShortTermBorrowings", "ShortTermDebtCurrent"],
+  },
+  commercial_paper: {
+    period: "instant", unit: "USD", tags: ["CommercialPaper"],
   },
   inventory: {
     period: "instant",
@@ -280,6 +284,7 @@ function quarterlyPoints(
   fact: SecFact | undefined,
   definition: MetricDefinition,
   mode: "direct" | "cumulative",
+  identities: Map<string, SecPoint>,
 ) {
   const rows = fact?.units?.[definition.unit] ?? [];
   const byQuarter = new Map<string, SecPoint>();
@@ -287,8 +292,9 @@ function quarterlyPoints(
   for (const point of rows) {
     if (!QUARTERLY_FORMS.has(String(point.form)) || !point.end) continue;
     if (secNumber(point.val) == null) continue;
-    const fiscalYear = pointFiscalYear(point);
-    const quarter = pointQuarter(point);
+    const identity = identities.get(point.end) ?? point;
+    const fiscalYear = pointFiscalYear(identity);
+    const quarter = pointQuarter(identity);
     if (fiscalYear == null || quarter == null) continue;
 
     if (definition.period === "instant") {
@@ -397,10 +403,9 @@ function deriveFinancialValues(values: FinancialValues, provenance: NormalizedPe
     );
   }
 
-  const cashAndInvestments =
-    values.cash == null
-      ? values.short_term_investments
-      : values.cash + (values.short_term_investments ?? 0);
+  // A missing investment tag is not a reported zero (issuer extensions may be absent).
+  const cashAndInvestments = values.cash != null && values.short_term_investments != null
+    ? values.cash + values.short_term_investments : undefined;
   setDerivedValue(
     values,
     provenance,
@@ -408,6 +413,15 @@ function deriveFinancialValues(values: FinancialValues, provenance: NormalizedPe
     cashAndInvestments,
     "cash + short_term_investments",
   );
+  if (cashAndInvestments == null) {
+    provenance.cash_and_investments = { status: "unavailable", reason: "Complete cash and current investments were not returned by SEC Company Facts." };
+  }
+
+  const shortTerm = values.short_term_borrowings ?? values.commercial_paper;
+  if (shortTerm != null) {
+    setDerivedValue(values, provenance, "current_debt", (values.current_debt ?? 0) + shortTerm,
+      "current portion of long-term debt + (short_term_borrowings or commercial_paper)");
+  }
 
   const totalDebt =
     values.long_term_debt == null
@@ -510,6 +524,16 @@ export function normalizeCompanyFacts(payload: SecCompanyFacts): NormalizedPerio
 export function normalizeQuarterlyCompanyFacts(payload: SecCompanyFacts): NormalizedPeriod[] {
   const facts = payload?.facts?.["us-gaap"] ?? {};
   const splits = stockSplitEvents(facts);
+  // SEC fy/fp describe the filing, including comparative prior-year facts.
+  // The earliest filing for each period end supplies its original fiscal identity.
+  const identities = new Map<string, SecPoint>();
+  for (const fact of Object.values(facts)) {
+    for (const point of Object.values(fact.units ?? {}).flat()) {
+      if (!point || point.form !== "10-Q" || !point.end || !pointQuarter(point)) continue;
+      const current = identities.get(point.end);
+      if (!current || String(point.filed ?? "") < String(current.filed ?? "")) identities.set(point.end, point);
+    }
+  }
   const quarters = new Map<
     string,
     { fiscalYear: number; quarter: 1 | 2 | 3 | 4; values: FinancialValues; provenance: NormalizedPeriod["provenance"]; meta: SecPoint }
@@ -547,11 +571,11 @@ export function normalizeQuarterlyCompanyFacts(payload: SecCompanyFacts): Normal
     const annual = new Map<number, { point: SecPoint; tag: string }>();
 
     for (const tag of definition.tags) {
-      for (const [key, point] of quarterlyPoints(facts[tag], definition, "direct")) {
+      for (const [key, point] of quarterlyPoints(facts[tag], definition, "direct", identities)) {
         if (!direct.has(key)) direct.set(key, { point, tag });
       }
       if (definition.period === "duration") {
-        for (const [key, point] of quarterlyPoints(facts[tag], definition, "cumulative")) {
+        for (const [key, point] of quarterlyPoints(facts[tag], definition, "cumulative", identities)) {
           if (!cumulative.has(key)) cumulative.set(key, { point, tag });
         }
       }
@@ -567,12 +591,14 @@ export function normalizeQuarterlyCompanyFacts(payload: SecCompanyFacts): Normal
 
     for (const fiscalYear of fiscalYears) {
       const quarterValues = new Map<1 | 2 | 3, number>();
+      const quarterDays = new Map<1 | 2 | 3, number>();
       for (const quarter of [1, 2, 3] as const) {
         const key = `${fiscalYear}-Q${quarter}`;
         const directValue = direct.get(key);
         if (directValue) {
           const value = Number(directValue.point.val);
           quarterValues.set(quarter, value);
+          quarterDays.set(quarter, (durationDays(directValue.point) ?? 0) + 1);
           writeMetric(metric, fiscalYear, quarter, value, directValue.point, directValue.tag);
           continue;
         }
@@ -580,10 +606,18 @@ export function normalizeQuarterlyCompanyFacts(payload: SecCompanyFacts): Normal
         const cumulativeValue = cumulative.get(key);
         if (!cumulativeValue) continue;
         const current = Number(cumulativeValue.point.val);
-        const prior = quarter === 1 ? 0 : Number(cumulative.get(`${fiscalYear}-Q${quarter - 1}`)?.point.val);
+        const priorPoint = cumulative.get(`${fiscalYear}-Q${quarter - 1}`)?.point;
+        const prior = quarter === 1 ? 0 : Number(priorPoint?.val);
         if (quarter > 1 && !Number.isFinite(prior)) continue;
-        const value = current - prior;
+        // Weighted-average shares are averages, not additive cash-flow amounts.
+        const currentDays = (durationDays(cumulativeValue.point) ?? 0) + 1;
+        const priorDays = priorPoint ? (durationDays(priorPoint) ?? 0) + 1 : 0;
+        const days = currentDays - priorDays;
+        if (days <= 0) continue;
+        const value = metric === "diluted_shares"
+          ? (current * currentDays - prior * priorDays) / days : current - prior;
         quarterValues.set(quarter, value);
+        quarterDays.set(quarter, days);
         writeMetric(
           metric,
           fiscalYear,
@@ -591,7 +625,8 @@ export function normalizeQuarterlyCompanyFacts(payload: SecCompanyFacts): Normal
           value,
           cumulativeValue.point,
           cumulativeValue.tag,
-          quarter === 1 ? "reported first-quarter value" : `year-to-date Q${quarter} minus year-to-date Q${quarter - 1}`,
+          metric === "diluted_shares" ? "day-weighted year-to-date shares less prior year-to-date shares"
+            : quarter === 1 ? "reported first-quarter value" : `year-to-date Q${quarter} minus year-to-date Q${quarter - 1}`,
         );
       }
 
@@ -603,14 +638,22 @@ export function normalizeQuarterlyCompanyFacts(payload: SecCompanyFacts): Normal
       }
       if (![1, 2, 3].every((quarter) => quarterValues.has(quarter as 1 | 2 | 3))) continue;
       const firstNineMonths = [...quarterValues.values()].reduce((sum, value) => sum + value, 0);
+      const annualDays = (durationDays(annualValue.point) ?? 0) + 1;
+      const nineMonthDays = [...quarterDays.values()].reduce((sum, days) => sum + days, 0);
+      const fourthQuarterDays = annualDays - nineMonthDays;
+      if (metric === "diluted_shares" && fourthQuarterDays <= 0) continue;
+      const q4 = metric === "diluted_shares"
+        ? (Number(annualValue.point.val) * annualDays - [...quarterValues].reduce((sum, [q, value]) => sum + value * (quarterDays.get(q) ?? 0), 0)) / fourthQuarterDays
+        : Number(annualValue.point.val) - firstNineMonths;
+      if (metric === "diluted_shares" && q4 <= 0) continue;
       writeMetric(
         metric,
         fiscalYear,
         4,
-        Number(annualValue.point.val) - firstNineMonths,
+        q4,
         annualValue.point,
         annualValue.tag,
-        "fiscal-year value minus Q1, Q2 and Q3",
+        metric === "diluted_shares" ? "day-weighted fiscal-year shares less Q1, Q2 and Q3 shares" : "fiscal-year value minus Q1, Q2 and Q3",
       );
     }
   }

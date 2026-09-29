@@ -91,7 +91,9 @@ export function CompanyHeader({
               <Renew size={16} aria-hidden="true" />
             </button>
           </div>
-          <span className="company-refresh-status" aria-live="polite">{refreshStatus?.message}</span>
+          <span className="company-refresh-status" aria-live="polite">{refreshStatus?.message || (statusLabel === "Stale" && freshness
+            ? `Saved data: filing ${freshnessDisplay(freshness.financials, true)}, quote ${freshnessDisplay(freshness.quote, true)}. Refresh is pending or unavailable.`
+            : null)}</span>
           <p>{analysis.company.exchange || "US listed"} / {classification || "SEC reporting company"}</p>
         </div>
       </div>

@@ -41,6 +41,7 @@ import { FinancialDataUnavailableError, SourceDataUnavailableError } from "./pro
 import { normalizeTicker } from "./security-master.ts";
 import { coordinateAnalysisBuild } from "./scaling-protection.ts";
 import { persistPeerResult } from "./peer-persistence.ts";
+import { recoverOptionalSource } from "./optional-source.ts";
 
 type SourceStatus = "live" | "cached" | "stale" | "unavailable";
 type FreshnessItem = {
@@ -388,14 +389,11 @@ export function markSnapshotFreshness(analysis: Analysis, status: "cached" | "re
     ...item,
     status: item.status === "unavailable"
       ? "unavailable"
-      : item.fresh_until && Date.parse(item.fresh_until) <= Date.now()
+      : item.status === "stale" || item.fresh_until && Date.parse(item.fresh_until) <= Date.now()
         ? "stale"
         : "cached",
   });
-  return {
-    ...analysis,
-    freshness: {
-      page_status: status,
+  const items = {
       financials: markCachedSource(analysis.freshness.financials),
       quote: markCachedSource(analysis.freshness.quote),
       analyst_estimates: markCachedSource(analysis.freshness.analyst_estimates),
@@ -403,6 +401,12 @@ export function markSnapshotFreshness(analysis: Analysis, status: "cached" | "re
       news: markCachedSource(analysis.freshness.news),
       risks: markCachedSource(analysis.freshness.risks),
       summary: markCachedSource(analysis.freshness.summary),
+  };
+  return {
+    ...analysis,
+    freshness: {
+      page_status: Object.values(items).some(item => item.status === "stale") ? "stale" : status,
+      ...items,
     },
   };
 }
@@ -614,15 +618,21 @@ export async function rebuildAnalysisFromComponentCaches(
   const ticker = normalizeTicker(rawTicker);
   const financials = await loadFinancials(ticker);
   if (!financials.data) throw new FinancialDataUnavailableError(ticker);
+  const optionalWarnings: string[] = [];
+  const optional = <T>(request: Promise<Loaded<T>>, data: T, label: string) => recoverOptionalSource(
+    request,
+    { data, freshness: freshness("unavailable", null, null, `${label} unavailable`) },
+    () => optionalWarnings.push(`${label} could not be retrieved. Other company data remains available.`),
+  );
   const quoteRequest = loadQuote(ticker, financials.data);
   const [quote, estimates, risks, news, peers] = await Promise.all([
     quoteRequest,
-    loadEstimates(ticker, financials.data),
-    loadRisks(ticker, financials.data),
-    loadNews(ticker, financials.data),
+    optional(loadEstimates(ticker, financials.data), { ...emptyEstimates(ticker), provider: "Unavailable", disclosure: "Analyst estimates are temporarily unavailable." }, "Analyst estimates"),
+    optional(loadRisks(ticker, financials.data), [] as CompanyRisk[], "Filing risk disclosures"),
+    optional(loadNews(ticker, financials.data), emptyNewsFeed(), "News"),
     quoteRequest.then((quote) => {
       if (!quote.data) throw new SourceDataUnavailableError(`A market quote is unavailable for ${ticker}.`);
-      return loadPeers(ticker, financials.data, quote.data);
+      return optional(loadPeers(ticker, financials.data, quote.data), { ...emptyPeerSet(), methodology: "Comparable-company data is temporarily unavailable." }, "Comparable companies");
     }),
   ]);
   if (!quote.data) throw new SourceDataUnavailableError(`A market quote is unavailable for ${ticker}.`);
@@ -639,7 +649,7 @@ export async function rebuildAnalysisFromComponentCaches(
     analystEstimates: estimates.data,
     peerSet: peers.data,
     newsFeed: news.data,
-    warnings: financials.warnings,
+    warnings: [...financials.warnings, ...optionalWarnings],
   });
   const pageStatus = [financials.freshness, quote.freshness, estimates.freshness, peers.freshness, risks.freshness, news.freshness]
     .some((item) => item.status === "stale") ? "stale" : "live";

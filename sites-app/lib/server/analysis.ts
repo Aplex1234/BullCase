@@ -59,6 +59,8 @@ export async function buildAnalysis(
   const ticker = normalizeTicker(rawTicker);
   const warnings: string[] = [...(sources.warnings ?? [])];
   const financials = sources.financials ?? await fetchFinancialSource(ticker);
+  const liquidity = financials.periods.at(-1)?.provenance.cash_and_investments;
+  if (liquidity?.status === "unavailable") warnings.push(liquidity.reason);
   const sourceMode = sources.financialSourceMode ?? "live-sec";
   const quote = sources.quote ?? await fetchQuote(ticker);
   const assumptions: Assumptions = { ...DEFAULT_ASSUMPTIONS, ...requested };

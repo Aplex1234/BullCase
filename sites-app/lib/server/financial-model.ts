@@ -37,7 +37,8 @@ export function calculateMetrics(periods: Period[], price: number, quotedMarketC
   const shares = latest.shares_outstanding ?? latest.diluted_shares;
   const marketCap = quotedMarketCap && quotedMarketCap > 0 ? quotedMarketCap : shares ? shares * price : undefined;
   const debt = latest.total_debt ?? latest.long_term_debt ?? null;
-  const liquidAssets = latest.cash_and_investments ?? latest.cash ?? null;
+  const liquidAssets = periods.at(-1)!.provenance.cash_and_investments?.status === "unavailable"
+    ? null : latest.cash_and_investments ?? latest.cash ?? null;
   const netDebt = latest.net_debt ?? (debt != null && liquidAssets != null ? debt - liquidAssets : null);
   const investedCapital = latest.equity != null && debt != null && liquidAssets != null
     ? latest.equity + debt - liquidAssets

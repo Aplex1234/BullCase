@@ -95,7 +95,7 @@ export async function GET(request: Request, context: { params: Promise<{ ticker:
         "Cache-Control": "public, max-age=30, s-maxage=300, stale-while-revalidate=600",
         ETag: etag,
         "Server-Timing": `app;dur=${Date.now() - requestStartedAt}`,
-        [EDGE_CACHEABLE_HEADER]: cached.isFresh ? "yes" : "no",
+        [EDGE_CACHEABLE_HEADER]: cached.isFresh && analysis.freshness?.page_status !== "stale" ? "yes" : "no",
       };
       if (request.headers.get("if-none-match") === etag) return new NextResponse(null, { status: 304, headers });
       return NextResponse.json({

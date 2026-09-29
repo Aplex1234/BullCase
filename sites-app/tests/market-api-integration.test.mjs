@@ -224,14 +224,16 @@ test("normalizes Mastercard tag transitions and comparative annual facts", () =>
   assert.deepEqual(periods.map((period) => period.fiscal_year), [2021, 2022, 2023, 2024, 2025]);
   assert.equal(periods.at(-1).values.revenue, 32_791_000_000);
   assert.equal(periods.at(-1).values.operating_income, 18_897_000_000);
-  assert.equal(periods.at(-1).values.cash_and_investments, 10_566_000_000);
+  assert.equal(periods.at(-1).values.cash, 10_566_000_000);
+  assert.equal(periods.at(-1).values.cash_and_investments, undefined);
+  assert.equal(periods.at(-1).provenance.cash_and_investments.status, "unavailable");
   assert.equal(periods.at(-1).values.total_assets, 54_157_000_000);
   assert.equal(periods.at(-1).values.total_debt, 18_251_000_000);
   assert.equal(periods.at(-1).values.free_cash_flow, 17_159_000_000);
 
   const balanceGroup = FINANCIAL_GROUPS.find((group) => group.key === "balanceSheet");
   const chart = buildFinancialExplorerData(periods, balanceGroup);
-  assert.equal(chart.at(-1).cash_and_investments, 10.566);
+  assert.equal(chart.at(-1).cash_and_investments, null);
   assert.equal(chart.at(-1).total_assets, 54.157);
 });
 
