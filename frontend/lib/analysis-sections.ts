@@ -16,6 +16,14 @@ export const ANALYSIS_SECTIONS: AnalysisSection[] = [
 export type DeferredSection = Exclude<AnalysisSection, "overview">;
 export type AnalysisSectionPanelState = "content" | "loading" | "error";
 
+export function sectionIncludesDetailedFinancials(section: AnalysisSection) {
+  return section === "financials" || section === "valuation" || section === "buyTarget";
+}
+
+export function sectionIncludesEstimates(section: AnalysisSection) {
+  return section === "earnings" || section === "financials";
+}
+
 export function isAnalysisSectionLoaded(analysis: Pick<Analysis, "data_scope" | "loaded_sections">, section: AnalysisSection) {
   if (section === "overview") return true;
   if (analysis.loaded_sections) return analysis.loaded_sections.includes(section);
@@ -37,8 +45,8 @@ export function analysisSectionPanelState(
 
 export function mergeAnalysisSection(current: Analysis, next: Analysis, section: AnalysisSection): Analysis {
   if (next.data_scope === "full") return next;
-  const detailedFinancials = ["financials", "valuation", "buyTarget"].includes(section);
-  const includesEstimates = ["earnings", "financials"].includes(section);
+  const detailedFinancials = sectionIncludesDetailedFinancials(section);
+  const includesEstimates = sectionIncludesEstimates(section);
   const loadedSections = new Set<AnalysisSection>([
     ...(current.loaded_sections ?? ["overview"]),
     ...(next.loaded_sections ?? [section]),

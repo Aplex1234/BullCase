@@ -78,3 +78,34 @@ test("a new page cache does not hide stale underlying sources", () => {
   assert.equal(marked.freshness.financials.status, "stale");
   assert.equal(marked.freshness.page_status, "stale");
 });
+
+test("snapshot cleanup preserves expiry boundaries, unavailable sources, and caller status", (t) => {
+  const now = Date.parse("2026-09-29T12:00:00Z");
+  t.mock.method(Date, "now", () => now);
+  const keys = ["financials", "quote", "analyst_estimates", "comps", "news", "risks", "summary"];
+  const cases = [
+    ["live", null, "cached"],
+    ["cached", "invalid", "cached"],
+    ["live", new Date(now + 1).toISOString(), "cached"],
+    ["cached", new Date(now).toISOString(), "stale"],
+    ["live", new Date(now - 1).toISOString(), "stale"],
+    ["stale", "2099-01-01", "stale"],
+    ["unavailable", "2000-01-01", "unavailable"],
+  ];
+  for (const key of keys) {
+    for (const [sourceStatus, freshUntil, expected] of cases) {
+      for (const pageStatus of ["cached", "refreshing", "stale"]) {
+        const item = { status: "cached", as_of: null, fresh_until: null, source: "test" };
+        const analysis = { freshness: { page_status: "live", ...Object.fromEntries(keys.map(name => [name, { ...item }])) } };
+        analysis.freshness[key] = { ...item, status: sourceStatus, fresh_until: freshUntil };
+        const before = structuredClone(analysis);
+        const marked = markSnapshotFreshness(analysis, pageStatus);
+        assert.equal(marked.freshness[key].status, expected, key);
+        assert.equal(marked.freshness.page_status, expected === "stale" ? "stale" : pageStatus, key);
+        assert.deepEqual(analysis, before);
+      }
+    }
+  }
+  const unscoped = {};
+  assert.equal(markSnapshotFreshness(unscoped, "cached"), unscoped);
+});

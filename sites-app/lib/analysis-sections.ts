@@ -3,8 +3,10 @@ export {
   analysisSectionPanelState,
   isAnalysisSectionLoaded,
   mergeAnalysisSection,
-} from "../../frontend/lib/analysis-sections";
+  sectionIncludesDetailedFinancials,
+  sectionIncludesEstimates,
+} from "../../frontend/lib/analysis-sections.ts";
 export type {
   AnalysisSectionPanelState,
   DeferredSection,
-} from "../../frontend/lib/analysis-sections";
+} from "../../frontend/lib/analysis-sections.ts";

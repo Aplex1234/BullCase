@@ -1,4 +1,5 @@
 import type { Analysis, AnalysisSection, DcfAssumptions } from "@/lib/types";
+import { ANALYSIS_SECTIONS, sectionIncludesDetailedFinancials, sectionIncludesEstimates } from "../analysis-sections.ts";
 import {
   buildAnalysis,
   fetchAnalystEstimates,
@@ -57,12 +58,21 @@ type Loaded<T> = {
   cached?: CachedComponent<T> | null;
 };
 
-const ALL_ANALYSIS_SECTIONS: AnalysisSection[] = [
-  "overview", "financials", "valuation", "buyTarget", "comps", "earnings", "news", "filings", "risks", "research",
-];
+const ALL_ANALYSIS_SECTIONS = [...ANALYSIS_SECTIONS];
 
 function freshness(status: SourceStatus, asOf: string | null, freshUntil: string | null, source: string): FreshnessItem {
   return { status, as_of: asOf, fresh_until: freshUntil, source };
+}
+
+function hasStaleSource(items: FreshnessItem[]) {
+  return items.some((item) => item.status === "stale");
+}
+
+function markCachedSource(item: FreshnessItem): FreshnessItem {
+  if (item.status === "unavailable") return { ...item, status: "unavailable" };
+  if (item.status === "stale") return { ...item, status: "stale" };
+  const expired = item.fresh_until && Date.parse(item.fresh_until) <= Date.now();
+  return { ...item, status: expired ? "stale" : "cached" };
 }
 
 async function scheduleSharedRefresh(cacheKey: string, task: () => Promise<unknown>) {
@@ -385,27 +395,19 @@ function attachFreshness(
 
 export function markSnapshotFreshness(analysis: Analysis, status: "cached" | "refreshing" | "stale") {
   if (!analysis.freshness) return analysis;
-  const markCachedSource = (item: FreshnessItem): FreshnessItem => ({
-    ...item,
-    status: item.status === "unavailable"
-      ? "unavailable"
-      : item.status === "stale" || item.fresh_until && Date.parse(item.fresh_until) <= Date.now()
-        ? "stale"
-        : "cached",
-  });
   const items = {
-      financials: markCachedSource(analysis.freshness.financials),
-      quote: markCachedSource(analysis.freshness.quote),
-      analyst_estimates: markCachedSource(analysis.freshness.analyst_estimates),
-      comps: markCachedSource(analysis.freshness.comps),
-      news: markCachedSource(analysis.freshness.news),
-      risks: markCachedSource(analysis.freshness.risks),
-      summary: markCachedSource(analysis.freshness.summary),
+    financials: markCachedSource(analysis.freshness.financials),
+    quote: markCachedSource(analysis.freshness.quote),
+    analyst_estimates: markCachedSource(analysis.freshness.analyst_estimates),
+    comps: markCachedSource(analysis.freshness.comps),
+    news: markCachedSource(analysis.freshness.news),
+    risks: markCachedSource(analysis.freshness.risks),
+    summary: markCachedSource(analysis.freshness.summary),
   };
   return {
     ...analysis,
     freshness: {
-      page_status: Object.values(items).some(item => item.status === "stale") ? "stale" : status,
+      page_status: hasStaleSource(Object.values(items)) ? "stale" : status,
       ...items,
     },
   };
@@ -452,10 +454,11 @@ export function buildOverviewSnapshot(analysis: Analysis): Analysis {
 export function buildSectionSnapshot(analysis: Analysis, section: AnalysisSection): Analysis {
   if (section === "overview") return buildOverviewSnapshot(analysis);
   const overview = buildOverviewSnapshot(analysis);
-  const needsDetailedFinancials = ["financials", "valuation", "buyTarget"].includes(section);
+  const needsDetailedFinancials = sectionIncludesDetailedFinancials(section);
+  const includesEstimates = sectionIncludesEstimates(section);
   const sectionFreshness = analysis.freshness && overview.freshness ? {
     ...overview.freshness,
-    analyst_estimates: ["earnings", "financials"].includes(section)
+    analyst_estimates: includesEstimates
       ? analysis.freshness.analyst_estimates
       : overview.freshness.analyst_estimates,
     comps: section === "comps" ? analysis.freshness.comps : overview.freshness.comps,
@@ -469,7 +472,7 @@ export function buildSectionSnapshot(analysis: Analysis, section: AnalysisSectio
     loaded_sections: ["overview", section],
     financials: needsDetailedFinancials ? analysis.financials : overview.financials,
     quarterly_financials: needsDetailedFinancials ? analysis.quarterly_financials : [],
-    analyst_estimates: ["earnings", "financials"].includes(section) ? analysis.analyst_estimates : overview.analyst_estimates,
+    analyst_estimates: includesEstimates ? analysis.analyst_estimates : overview.analyst_estimates,
     comps: section === "comps" ? analysis.comps : [],
     filings: section === "filings" ? analysis.filings : [],
     risks: section === "risks" ? analysis.risks : [],
@@ -554,7 +557,7 @@ export async function rebuildAnalysisSectionFromComponentCaches(rawTicker: strin
   if (!financials.data) throw new FinancialDataUnavailableError(ticker);
   const quote = await loadQuote(ticker, financials.data, forceRefresh);
   if (!quote.data) throw new SourceDataUnavailableError(`A market quote is unavailable for ${ticker}.`);
-  const estimates = ["earnings", "financials"].includes(section)
+  const estimates = sectionIncludesEstimates(section)
     ? await loadEstimates(ticker, financials.data, forceRefresh)
     : { data: emptyEstimates(ticker), freshness: freshness("unavailable", null, null, "Loads with Earnings") };
   const peers = section === "comps"
@@ -581,8 +584,7 @@ export async function rebuildAnalysisSectionFromComponentCaches(rawTicker: strin
     newsFeed: news.data,
     warnings: financials.warnings,
   });
-  const pageStatus = [financials.freshness, quote.freshness, estimates.freshness, peers.freshness, risks.freshness, news.freshness]
-    .some((item) => item.status === "stale") ? "stale" : "live";
+  const pageStatus = hasStaleSource([financials.freshness, quote.freshness, estimates.freshness, peers.freshness, risks.freshness, news.freshness]) ? "stale" : "live";
   const enriched = attachFreshness(analysis, pageStatus, {
     financials: financials.freshness,
     quote: quote.freshness,
@@ -651,8 +653,7 @@ export async function rebuildAnalysisFromComponentCaches(
     newsFeed: news.data,
     warnings: [...financials.warnings, ...optionalWarnings],
   });
-  const pageStatus = [financials.freshness, quote.freshness, estimates.freshness, peers.freshness, risks.freshness, news.freshness]
-    .some((item) => item.status === "stale") ? "stale" : "live";
+  const pageStatus = hasStaleSource([financials.freshness, quote.freshness, estimates.freshness, peers.freshness, risks.freshness, news.freshness]) ? "stale" : "live";
   const enriched = attachFreshness(analysis, pageStatus, {
     financials: financials.freshness,
     quote: quote.freshness,

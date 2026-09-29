@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 import { buildFinancialGrowthData, financialGrowthValue, FINANCIAL_GROUPS } from "../../frontend/lib/financials.ts";
-import { analysisSectionPanelState, mergeAnalysisSection } from "../../frontend/lib/analysis-sections.ts";
+import { ANALYSIS_SECTIONS, analysisSectionPanelState, mergeAnalysisSection, sectionIncludesDetailedFinancials, sectionIncludesEstimates } from "../../frontend/lib/analysis-sections.ts";
 import { buildOverviewSnapshot, buildSectionSnapshot } from "../lib/server/analysis-service.ts";
 
 test("public share image has no embedded provenance block", async () => {
@@ -253,7 +253,31 @@ test("loads expensive research sections independently after Overview", async () 
   assert.match(service, /section === "comps"[\s\S]*?loadPeers/);
   assert.match(service, /section === "risks"[\s\S]*?loadRisks/);
   assert.match(service, /section === "news"[\s\S]*?loadNews/);
-  assert.match(service, /\["earnings", "financials"\]\.includes\(section\)[\s\S]*?loadEstimates/);
+  assert.match(service, /const estimates = sectionIncludesEstimates\(section\)\s*\? await loadEstimates/);
+});
+
+test("shared section rules preserve detailed financials and estimates across every tab", () => {
+  const complete = {
+    financials: [{ values: { revenue: 1, net_income: 2 }, provenance: {} }],
+    quarterly_financials: [{ values: { revenue: 3 } }],
+    analyst_estimates: { quarterly: [{ period: "Q1" }], annual: [{ period: "FY" }], provider: "test", as_of: null, source_url: "test", disclosure: "test" },
+    comps: [{ ticker: "PEER" }], filings: [{ form: "10-K" }], risks: [{ title: "risk" }],
+    news: { items: [{ title: "story" }], fetched_at: "2026-01-01", providers: [], industry_query: null, warnings: [] },
+    provenance: { warnings: [] },
+  };
+  for (const section of ANALYSIS_SECTIONS) {
+    const detailed = ["financials", "valuation", "buyTarget"].includes(section);
+    const estimates = ["financials", "earnings"].includes(section);
+    assert.equal(sectionIncludesDetailedFinancials(section), detailed, section);
+    assert.equal(sectionIncludesEstimates(section), estimates, section);
+    const snapshot = buildSectionSnapshot(complete, section);
+    assert.equal(snapshot.financials[0].values.net_income, detailed ? 2 : undefined, section);
+    assert.equal(snapshot.quarterly_financials.length, detailed ? 1 : 0, section);
+    assert.equal(snapshot.analyst_estimates.annual.length, estimates ? 1 : 0, section);
+    const merged = mergeAnalysisSection(buildOverviewSnapshot(complete), snapshot, section);
+    assert.equal(merged.financials[0].values.net_income, detailed ? 2 : undefined, section);
+    assert.equal(merged.analyst_estimates.annual.length, estimates ? 1 : 0, section);
+  }
 });
 
 test("starts a shared full warm immediately after every successful Overview", async () => {
