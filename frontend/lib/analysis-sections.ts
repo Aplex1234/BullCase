@@ -48,18 +48,24 @@ export function mergeAnalysisSection(current: Analysis, next: Analysis, section:
   const detailedFinancials = sectionIncludesDetailedFinancials(section);
   const includesEstimates = sectionIncludesEstimates(section);
   const loadedSections = new Set<AnalysisSection>([
-    ...(current.loaded_sections ?? ["overview"]),
+    ...(current.loaded_sections ?? ANALYSIS_SECTIONS.filter((item) => isAnalysisSectionLoaded(current, item))),
     ...(next.loaded_sections ?? [section]),
   ]);
   const currentFreshness = current.freshness;
   const nextFreshness = next.freshness;
-  const mergedFreshness = currentFreshness && nextFreshness ? {
+  let mergedFreshness = currentFreshness && nextFreshness ? {
     ...nextFreshness,
     analyst_estimates: includesEstimates ? nextFreshness.analyst_estimates : currentFreshness.analyst_estimates,
     comps: section === "comps" ? nextFreshness.comps : currentFreshness.comps,
     news: section === "news" ? nextFreshness.news : currentFreshness.news,
     risks: section === "risks" ? nextFreshness.risks : currentFreshness.risks,
   } : nextFreshness ?? currentFreshness;
+  if (mergedFreshness && Object.entries(mergedFreshness).some(([key, item]) =>
+    key !== "page_status" && item != null && typeof item === "object" && item.status === "stale"
+  )) {
+    // Keep the page warning in sync with all source data retained by the merge.
+    mergedFreshness = { ...mergedFreshness, page_status: "stale" };
+  }
   const warnings = [...new Set([
     ...(current.provenance.warnings ?? []),
     ...(next.provenance.warnings ?? []),

@@ -579,6 +579,38 @@ test("merges a deferred section without erasing freshness from previously loaded
   assert.deepEqual(merged.provenance.warnings, ["Existing warning", "New warning"]);
 });
 
+test("partial merges keep stale retained sources visible and clear replaced stale sources", () => {
+  const base = {
+    data_scope: "partial", loaded_sections: ["overview", "comps"],
+    provenance: { warnings: [] }, financials: [], quarterly_financials: [],
+    analyst_estimates: {}, comps: [], filings: [], risks: [], news: {},
+    freshness: { page_status: "stale", comps: { status: "stale" }, news: { status: "unavailable" } },
+  };
+  const news = { ...base, loaded_sections: ["overview", "news"], freshness: { page_status: "live", comps: { status: "unavailable" }, news: { status: "live" } } };
+  const merged = mergeAnalysisSection(base, news, "news");
+  assert.equal(merged.freshness.comps.status, "stale");
+  assert.equal(merged.freshness.page_status, "stale");
+  assert.equal(news.freshness.page_status, "live");
+  const staleIncoming = { ...news, freshness: { ...news.freshness, comps: { status: "stale" } } };
+  assert.equal(mergeAnalysisSection({ ...base, freshness: undefined }, staleIncoming, "news").freshness.page_status, "stale");
+  assert.equal(staleIncoming.freshness.page_status, "live");
+  const refreshed = mergeAnalysisSection(merged, { ...base, freshness: { page_status: "live", comps: { status: "live" }, news: { status: "unavailable" } } }, "comps");
+  assert.equal(refreshed.freshness.page_status, "live");
+});
+
+test("partial merges preserve the loaded state of legacy complete responses", () => {
+  const base = { provenance: { warnings: [] } };
+  const next = { ...base, data_scope: "partial", loaded_sections: ["overview", "news"] };
+  for (const data_scope of [undefined, "full"]) {
+    const merged = mergeAnalysisSection({ ...base, data_scope }, next, "news");
+    for (const section of ANALYSIS_SECTIONS) {
+      assert.equal(analysisSectionPanelState(merged, section, null, null), "content", section);
+    }
+  }
+  const partial = mergeAnalysisSection({ ...base, data_scope: "partial" }, next, "news");
+  assert.equal(analysisSectionPanelState(partial, "comps", null, null), "loading");
+});
+
 test("merges analyst estimates returned with the Financials section", () => {
   const current = {
     data_scope: "overview", loaded_sections: ["overview"], financials: [], quarterly_financials: [],
