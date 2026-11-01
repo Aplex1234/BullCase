@@ -1,5 +1,7 @@
 # BullCase
 
+Warnings Bullcase hasnt been updated and many features no longer work
+
 BullCase is a transparent equity-research terminal. Enter a US-listed ticker and the application retrieves SEC Company Facts, normalizes annual financial statements, calculates key metrics, runs a multi-method valuation, applies a dynamic margin of safety, and produces a reproducible 0 to 100 attractiveness score.
 
 ## Repository architecture
